@@ -114,6 +114,56 @@ Application-side calculations support monitoring and analysis without replacing 
 
 ---
 
+## Academy Auction Campaign Model
+
+Academy's evolving campaign architecture introduces a coordinating level above individual Uniswap CCA auctions.
+
+An **Academy Auction** represents a persistent campaign containing an ordered series of independently executed CCAs.
+
+The campaign manages the overall allocation, stage progression, cumulative results, graduation conditions, and scheduling between auctions.
+
+### Hierarchical Structure
+
+**Academy Auction → CCA Stage → Distribution Steps**
+
+Each level has a distinct responsibility:
+
+| Component | Responsibility |
+|---|---|
+| **Academy Auction** | Campaign identity, allocation, scheduling, graduation, and cumulative economic state |
+| **CCA Stage** | Independent auction configuration, contract execution, settlement, exits, and claims |
+| **Distribution Steps** | Configured token flow and supply distribution within the CCA |
+
+### Campaign Progression
+
+Each completed CCA contributes results to the campaign.
+
+These results inform whether the campaign can advance and how the next stage should be configured.
+
+The campaign can adapt the interval between CCAs without altering the configuration of an active auction.
+
+A stage that fails to satisfy its graduation conditions terminates the current campaign. The project can initiate another campaign later.
+
+### Relationship to TradeSphere
+
+The architecture follows a pattern already established in the broader TradeSphere design.
+
+A **CampaignActivity** contains **CampaignDirectives** that coordinate individual **AuctionActivities**.
+
+Campaign directives include scheduling and progression characteristics such as start, end, duration, confidence, and consensus.
+
+The same organizing principle applies to Gridiron's planned tournament model, where tournament scheduling coordinates individual GameActivities.
+
+Academy does not require the complete TradeSphere organizational Activity model to operate. Its campaign orchestration can remain independent while preserving compatibility with that broader architecture.
+
+### Implementation Status
+
+Individual CCA execution, registration, scenarios, and replay are implemented capabilities.
+
+Unified Academy Auction orchestration, adaptive stage scheduling, and campaign-level graduation remain part of the evolving implementation.
+
+The existing auction contract execution and settlement mechanics remain unchanged.
+
 ## Auction Registration & Creation
 
 ![TradeSphere Academy — Auction Registration](../assets/academy-registration.png)
