@@ -9,6 +9,11 @@ Built around **Uniswap's Continuous Clearing Auction (CCA) protocol**, Academy c
 The application is operational, with ongoing development focused on auction capabilities, automation, and integration with the broader TradeSphere ecosystem.
 
 **Working software. Real blockchain transactions. Observable results.**
+
+![TradeSphere Academy — Official Auction Portal](assets/academy-overview.png)
+
+*TradeSphere Academy — on-chain auctions powered by Uniswap CCA.*
+
 ## Why Academy?
 
 **Great projects need more than great ideas. They need an economy.**
@@ -72,6 +77,10 @@ As the auction progresses, tokens become available according to the configured r
 Auction positions are dynamic. New bids can change provisional allocations, including reducing or eliminating a previously winning position.
 
 When the auction concludes, final settlement determines token allocations, spending, claims, and recoverable funds.
+
+![TradeSphere Academy — Auction Execution](assets/academy-auction.png)
+
+*Academy Test execution — automated bidding, continuous clearing, rounds, token flow, and market activity.*
 
 **[Detailed auction mechanics](docs/auction.md)**
 
