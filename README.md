@@ -36,6 +36,50 @@ Graduation is a progression, not a requirement. Projects are free to chart their
 
 **Your project. Your economy. Your future.**
 
+## Why More Than One Auction?
+
+**Launching a token is an event. Building an economy is a process.**
+
+Traditional token launches often follow a one-and-done approach: distribute tokens, establish a liquidity pool, and leave the market to determine what happens next.
+
+That can work for some projects. But builders face a different challenge. They need capital, participants, token distribution, and sufficient liquidity to support an economy as their projects develop.
+
+A single auction may establish an initial market price without generating enough capital or liquidity to sustain meaningful trading.
+
+Academy is designed to support a more progressive approach.
+
+### One Academy Auction. Multiple Uniswap CCAs.
+
+An Academy Auction can organize a series of independently executed Uniswap Continuous Clearing Auctions into one coordinated campaign.
+
+Each stage provides an opportunity to distribute tokens, raise capital, and evaluate market participation.
+
+**The Reckoning** illustrates this approach through five stages:
+
+**Discovery → Confidence → Momentum → Expansion → Peak**
+
+Discovery establishes qualification and participation on Sepolia. Confidence introduces real economic commitments on mainnet.
+
+Following a successful Confidence auction, the project can establish its Uniswap liquidity pool, allowing secondary-market trading while subsequent auction stages continue.
+
+Each CCA retains its own bidding, clearing, settlement, exits, and claims.
+
+### Controlled Distribution. Adaptive Progression.
+
+Rather than releasing the entire campaign allocation at once, projects can distribute tokens progressively.
+
+Results from completed auctions can inform the timing and configuration of subsequent stages.
+
+Strong participation may justify advancing quickly. Weaker participation may warrant additional preparation and outreach.
+
+Each stage must meet its published graduation requirements to continue. If a stage fails to graduate, the current campaign concludes. The project remains free to regroup and launch another Academy Auction later.
+
+**The goal isn't to guarantee prices or eliminate risk. It's to provide builders with a structured, market-driven approach to developing their economies.**
+
+Academy combines independent on-chain auctions into a larger economic progression while preserving the transparency and execution rules of Uniswap CCA.
+
+*The individual auction capabilities are operational. Unified campaign orchestration and adaptive progression are part of Academy's evolving architecture.*
+
 ### Building It. Using It. Proving It.
 
 We're putting Academy to work on our own projects first.
