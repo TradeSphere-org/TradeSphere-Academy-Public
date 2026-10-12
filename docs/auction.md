@@ -86,6 +86,10 @@ A scenario may distribute different percentages of its supply over different por
 
 Each round can therefore have its own flow characteristics.
 
+![TradeSphere Academy — Auction Execution](../assets/academy-auction.png)
+
+*Test auction showing the current round, token flow, clearing information, competing bids, and bid controls.*
+
 ### Distribution Example
 
 Consider an auction configured with five rounds.
