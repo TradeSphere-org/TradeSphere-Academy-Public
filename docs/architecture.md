@@ -116,6 +116,10 @@ Application-side calculations support monitoring and analysis without replacing 
 
 ## Auction Registration & Creation
 
+![TradeSphere Academy — Auction Registration](../assets/auction-registration.png)
+
+*Academy's registration workflow for project identity, token information, and auction creation. Currently restricted to administrative use.*
+
 Academy uses an **AuctionRegistration** model to organize project information, auction creation parameters, and execution strategies.
 
 Each registration contains three primary elements:
