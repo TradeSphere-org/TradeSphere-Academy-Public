@@ -2,22 +2,24 @@
 
 ## Overview
 
-**Gridiron: The Reckoning** is TradeSphere Academy's inaugural auction campaign, using the IRN token to demonstrate market-driven funding, token distribution, and community participation.
+**Gridiron: The Reckoning** is TradeSphere Academy's inaugural auction campaign, using the IRN token to demonstrate market-driven funding, token distribution, price discovery, and community participation.
 
-The campaign introduces a progression from testnet discovery to mainnet auctions, rewarding early participants who help establish the project's initial economy.
+The campaign progresses from testnet discovery to mainnet auctions, rewarding early participants who help establish the project's initial economy.
 
 The first two auctions are particularly important:
 
-- **01 — Discovery:** Experience the auction on Sepolia, participate using test assets, and qualify for potential rewards in the next auction.
+- **01 — Discovery:** Participate on Ethereum Sepolia using test assets and establish eligibility for Confidence rewards.
 - **02 — Confidence:** Participate in the first mainnet auction using real assets, with additional IRN incentives for eligible Discovery participants.
 
 **Discovery establishes eligibility. Confidence requires commitment.**
 
-Rewards are earned through qualifying participation, not simply by connecting a wallet or registering interest.
+Rewards depend on qualifying participation and settled purchases, not simply connecting a wallet or registering interest.
+
+---
 
 ## The Reckoning Campaign
 
-The Reckoning is structured around five auction stages.
+The Reckoning consists of five auction stages.
 
 | Stage | Auction | Campaign Allocation | IRN |
 |---|---|---:|---:|
@@ -32,25 +34,27 @@ The total IRN supply is **1 trillion tokens**, with **5% (50 billion IRN)** allo
 
 ### Discovery Allocation
 
-Discovery operates on Sepolia using test assets. Its 5 billion IRN campaign allocation is reserved for rewards associated with the subsequent Confidence auction rather than being sold for real funds during Discovery.
+Discovery operates on Sepolia using test assets.
+
+Its 5 billion IRN campaign allocation is reserved for incentives associated with the subsequent Confidence auction rather than being sold for real funds during Discovery.
+
+This reserve funds both the Confidence lottery bonus and participation rewards.
 
 ### Confidence Allocation
 
-Confidence has a regular auction allocation of 7.5 billion IRN.
+Confidence has a regular auction allocation of **7.5 billion IRN**.
 
-An additional pool of up to 5 billion IRN is reserved for eligible Discovery participants who qualify through settled purchases in Confidence.
-
-The combined potential distribution associated with Confidence is therefore:
+An additional **5 billion IRN** is reserved for Discovery-related incentives distributed through Confidence.
 
 | Allocation | IRN |
 |---|---:|
 | Confidence auction supply | 7.5 billion |
-| Discovery qualification reward reserve | Up to 5 billion |
-| **Combined potential** | **Up to 12.5 billion** |
+| Discovery incentive reserve | 5 billion |
+| **Combined potential distribution** | **12.5 billion** |
 
-The reward reserve is separate from the ordinary Confidence auction supply.
+The 5 billion IRN reserve is divided between the lottery bonus and participation rewards.
 
-Any additional lottery allocation must be accounted for separately within the campaign's available token budget.
+**Both incentives are funded from the same reserve. No additional IRN allocation is required.**
 
 ---
 
@@ -60,40 +64,40 @@ Discovery is the qualifying stage of The Reckoning.
 
 It operates on **Ethereum Sepolia**, using test assets and actual blockchain transactions.
 
-Discovery is not merely a demonstration. It gives participants an opportunity to experience the auction mechanism while establishing eligibility for potential rewards in Confidence.
+Discovery is more than a demonstration. It allows participants to experience the auction mechanism while establishing eligibility for potential rewards in Confidence.
 
 ### How to Participate
 
 1. Connect a supported wallet to TradeSphere Academy.
-2. Use the Sepolia network.
+2. Select the Sepolia network.
 3. Obtain the test assets provided for Discovery participation.
 4. Submit a qualifying auction bid.
-5. Participate in the auction under its published rules.
+5. Participate under the auction's published rules.
 
-Academy's Discovery experience is designed to provide test quote tokens for participation without requiring users to purchase those tokens with real funds.
+Academy's Discovery experience provides test quote tokens for participation without requiring users to purchase them with real funds.
 
-Sepolia network gas may still be required for wallet transactions.
+Sepolia gas may still be required to authorize transactions.
 
 ### Qualification
 
-**Connecting a wallet alone does not qualify a participant for rewards.**
+**Connecting a wallet alone does not establish eligibility.**
 
-Qualification requires actual participation in Discovery under the campaign's eligibility rules.
+Participants must submit a qualifying bid during Discovery.
 
-The participating wallet address provides the link between Discovery and Confidence.
+The participating wallet address provides the connection between Discovery and Confidence.
 
-Participants should retain access to that same wallet for the subsequent mainnet auction.
+Participants should retain access to the same wallet for the subsequent mainnet auction.
 
 ### Why Discovery Matters
 
 Discovery serves several purposes:
 
-- Introduces participants to Uniswap CCA.
-- Demonstrates actual testnet bidding and price discovery.
-- Exercises Academy's monitoring and participation interface.
-- Provides an opportunity to evaluate auction behavior and transaction execution.
-- Establishes eligible participants for Confidence rewards.
-- Helps determine whether there is sufficient participation to proceed to mainnet.
+- Introduces participants to Uniswap Continuous Clearing Auctions.
+- Demonstrates actual on-chain bidding and price discovery.
+- Exercises Academy's wallet, transaction, monitoring, and position interfaces.
+- Validates auction execution under real testnet conditions.
+- Establishes eligible participants for Confidence incentives.
+- Helps determine whether sufficient interest exists to proceed to mainnet.
 
 Progression to Confidence is conditional on sufficient demand and successful launch validation.
 
@@ -103,23 +107,23 @@ Progression to Confidence is conditional on sufficient demand and successful lau
 
 Confidence is the first mainnet auction of The Reckoning.
 
-Unlike Discovery, participation involves real economic commitments using the auction's supported assets.
+Unlike Discovery, participation requires real economic commitments.
 
-Confidence introduces a reward mechanism for participants who qualified during Discovery.
+Confidence introduces additional IRN incentives for participants who qualified through Discovery and return to make qualifying purchases.
 
 ### Eligibility Requirements
 
-To receive Discovery qualification rewards during Confidence, a participant must:
+To receive Discovery participation rewards during Confidence, a participant must:
 
-1. Have qualified through actual Discovery auction participation.
+1. Have qualified through actual participation in Discovery.
 2. Use the same wallet address in Confidence.
 3. Submit a qualifying Confidence bid.
 4. Complete a qualifying settled purchase.
-5. Satisfy the campaign's purchase limits and other published requirements.
+5. Satisfy the campaign's purchase limits and eligibility requirements.
 
 **No qualifying purchase, no rewards.**
 
-Simply participating in Discovery does not entitle a wallet to an unconditional mainnet token distribution.
+Participating in Discovery alone does not entitle a wallet to an unconditional mainnet token distribution.
 
 ### Purchase Limits
 
@@ -130,157 +134,254 @@ The intended eligible settled-purchase range is:
 | Minimum qualifying purchase | 100 USDC |
 | Maximum eligible purchase | 5,000 USDC |
 
-These limits apply to the reward-eligible Confidence participation rules.
+These limits define the intended purchase range for Confidence reward eligibility.
 
-The final enforcement mechanism must ensure that applicable restrictions cannot be bypassed through direct smart contract interaction.
+The applicable enforcement mechanism must ensure that participants cannot bypass campaign restrictions through direct smart contract interaction.
 
-### Discovery Matching Rewards
+### Discovery Incentive Reserve
 
-The campaign reserves up to **5 billion IRN** for rewards associated with qualified Discovery participants.
+Confidence includes a **5 billion IRN reserve** established from Discovery's campaign allocation.
 
-The objective is to provide additional IRN to eligible participants who return for Confidence and complete real purchases.
+The reserve is distributed through two incentive mechanisms:
 
-Reward calculations are intended to reflect actual clearing and settlement rather than merely the amount initially submitted in a bid.
+1. **Lottery Bonus:** Calculated first and deducted from the reserve.
+2. **Participation Rewards:** Funded from the remaining reserve.
 
-### Dynamic Reward Allocation
-
-The reward system is designed to account for changing allocations during the auction.
-
-As clearing prices and fills evolve, the corresponding reward estimates may also change.
-
-Reward allocations remain provisional until the relevant purchase and auction settlement conditions are satisfied.
-
-The reward reserve is finite, and the intended allocation approach is competitive rather than an unconditional proportional distribution to every Discovery participant.
-
-Detailed allocation priority, reward caps, and exhaustion rules will be finalized and published before the Confidence auction.
+Both amounts can be projected dynamically during the auction and finalized using settlement results.
 
 ---
 
-## Confidence Lottery
+## Confidence Lottery Bonus
 
-The Confidence campaign also includes a proposed IRN bonus lottery.
+The Confidence lottery provides an additional IRN incentive associated with auction participation.
 
-Its purpose is to provide an additional incentive for qualifying participation.
+The bonus is funded directly from the 5 billion IRN Discovery reserve.
 
-### Prize Calculation
+### Bonus Calculation
 
-The proposed prize is denominated in **IRN**, not USDC.
-
-The prize value is calculated using an amount equivalent to **3% of settled Confidence auction proceeds**, converted into IRN at the final clearing price.
+The bonus is calculated using an amount equivalent to **3% of Confidence's settled USDC proceeds**, converted into IRN at the auction's final clearing price.
 
 \[
-\text{Lottery Prize (IRN)}
+\text{Lottery Bonus (IRN)}
 =
 \frac{0.03 \times \text{Settled USDC Proceeds}}
 {\text{Final Clearing Price (USDC/IRN)}}
 \]
 
-For example, if an auction settles 100,000 USDC at a clearing price of 0.00005 USDC per IRN, the calculated prize would be:
+For example, if Confidence settles 100,000 USDC at a clearing price of 0.00005 USDC per IRN:
 
 \[
+\text{Lottery Bonus}
+=
 \frac{3{,}000}{0.00005}
 =
 60{,}000{,}000\ \text{IRN}
 \]
 
-This example illustrates the calculation only.
+The calculation establishes an IRN-denominated prize.
 
-**No USDC is deducted from participant purchases or withheld from auction proceeds to fund the lottery.**
+**No USDC is withheld or deducted from auction proceeds.** The 3% figure is used solely to determine the equivalent IRN amount.
 
-The 3% figure is used to calculate the equivalent IRN prize.
+### Reserve Accounting
 
-### Live Prize Estimates
+The lottery bonus is allocated first, directly from the Discovery incentive reserve.
 
-Academy is intended to display an updated estimated prize as settled-proceeds projections and clearing conditions evolve.
+The remaining IRN becomes available for participation rewards.
 
-The final prize is determined from the auction's final settlement results.
+\[
+\text{Participation Reward Pool}
+=
+5{,}000{,}000{,}000
+-
+\text{Lottery Bonus (IRN)}
+\]
 
-### Pending Lottery Details
+The combined lottery bonus and participation rewards cannot exceed the 5 billion IRN reserve.
 
-Before activation, the following must be finalized:
+### Live Bonus Estimates
 
-- Participant eligibility and qualifying conditions
-- Winner selection procedure
-- Prize funding and token allocation
-- Any maximum prize size
-- Claim and distribution procedures
+Because the clearing price and proceeds evolve throughout the auction, Academy can calculate a projected lottery bonus using current auction values.
 
-The lottery is a proposed campaign feature until these rules and its funding mechanism are finalized.
+As the auction progresses:
 
-The reward structure and campaign token budget must remain consistent with the total allocation reserved for The Reckoning.
+- Estimated settlement proceeds change.
+- The clearing price may change.
+- The projected IRN lottery bonus changes.
+- The remaining participation reward pool is recalculated.
+
+These values are provisional until final settlement.
+
+The lottery bonus must remain within the available reserve; any applicable cap or exhaustion behavior will be specified in the final campaign rules.
+
+### Winner Selection
+
+The lottery's final participation requirements, winner-selection procedure, and distribution mechanics will be published before activation.
+
+The winner-selection mechanism is separate from the calculation and funding of the prize.
 
 ---
 
-## How Rewards Differ from Auction Purchases
+## Discovery Participation Rewards
 
-The campaign distinguishes three separate economic elements.
+After reserving the projected lottery bonus, the remaining IRN is available to reward eligible Discovery participants who complete qualifying purchases in Confidence.
 
-| Element | Description |
+### Reward Pool
+
+The participation reward pool is determined by:
+
+\[
+\text{Reward Pool IRN}
+=
+\text{Discovery Reserve IRN}
+-
+\text{Lottery Bonus IRN}
+\]
+
+With the Discovery reserve fixed at 5 billion IRN, the participation reward pool changes as the projected lottery bonus changes.
+
+### Reward Eligibility
+
+Participation rewards require:
+
+- A qualifying Discovery wallet.
+- The same wallet participating in Confidence.
+- A qualifying settled Confidence purchase.
+- Compliance with the published purchase limits.
+
+Rewards are associated with actual settled allocations, not simply submitted bids.
+
+### Dynamic Reward Calculation
+
+Academy is designed to calculate reward availability as the Confidence auction progresses.
+
+Current clearing prices and provisional bid fills provide the basis for estimating qualifying purchases and associated IRN rewards.
+
+As auction conditions change, projected individual rewards and the remaining available reward pool can be updated.
+
+These projections remain subject to final clearing and settlement.
+
+### Competitive Allocation
+
+The participation reward reserve is finite.
+
+The intended allocation approach is competitive rather than an unconditional proportional distribution across all Discovery participants.
+
+Reward availability depends on qualifying purchases and the remaining reserve.
+
+Detailed allocation priority, individual reward limits, and reserve-exhaustion rules will be published before Confidence.
+
+**Qualification establishes the opportunity to earn rewards. It does not guarantee an allocation independent of actual participation and available supply.**
+
+---
+
+## Real-Time Incentive Accounting
+
+The lottery bonus and participation rewards share one reserve and can be calculated together.
+
+Academy can present the evolving incentive allocation as the Confidence auction progresses.
+
+| Metric | Description |
 |---|---|
-| **Auction Purchase** | IRN acquired through the ordinary Confidence auction clearing process |
-| **Discovery Reward** | Additional IRN from the reserved qualification reward pool for eligible settled purchases |
-| **Lottery Prize** | Proposed additional IRN prize calculated from Confidence settlement results |
+| Discovery Reserve | Fixed 5 billion IRN incentive allocation |
+| Projected Lottery Bonus | IRN equivalent of 3% of projected settled USDC proceeds |
+| Available Reward Pool | Reserve remaining after the projected lottery bonus |
+| Projected Participation Rewards | IRN associated with currently qualifying settled-purchase estimates |
+| Remaining Unallocated Reserve | IRN not yet projected for either incentive |
 
-These mechanisms have different purposes and eligibility requirements.
+### Calculation Sequence
 
-A participant's ordinary auction purchase is governed by Uniswap CCA's execution and settlement rules.
+1. Observe current clearing and settlement-related values.
+2. Calculate the projected lottery bonus in IRN.
+3. Deduct the projected bonus from the 5 billion IRN reserve.
+4. Calculate projected participation rewards from qualifying purchases.
+5. Update remaining reward availability.
+6. Recalculate as auction conditions change.
+7. Finalize the amounts using the completed auction's settlement results.
 
-Additional campaign rewards are separate incentives administered according to the published campaign conditions.
+**Lottery bonus first. Participation rewards second. One reserve.**
+
+This structure keeps the entire incentive program within its original campaign allocation.
+
+---
+
+## Auction Purchases vs. Incentives
+
+The Reckoning distinguishes three economic components.
+
+| Component | Description |
+|---|---|
+| **Auction Purchase** | IRN acquired through ordinary Confidence auction clearing |
+| **Participation Reward** | Additional IRN earned by eligible Discovery participants through qualifying Confidence purchases |
+| **Lottery Bonus** | Additional IRN prize calculated from Confidence settlement proceeds |
+
+Ordinary auction purchases are governed by Uniswap CCA's on-chain clearing and settlement rules.
+
+Additional rewards and bonuses are funded from the separate 5 billion IRN Discovery incentive reserve.
+
+The total Confidence-related token distribution therefore remains within the combined 12.5 billion IRN allocation.
 
 ---
 
 ## Wallets, Transactions & Verification
 
-Discovery and Confidence operate on different blockchain networks but use the same wallet address for participant qualification.
+Discovery and Confidence use different blockchain networks, but qualification is associated with the participant's wallet address.
 
-- **Discovery:** Sepolia, test assets, on-chain participation.
-- **Confidence:** Mainnet, real assets, settled purchases.
+| Stage | Network | Assets |
+|---|---|---|
+| Discovery | Ethereum Sepolia | Test assets |
+| Confidence | Ethereum Mainnet | Real assets |
 
-Using the same wallet allows the campaign to associate a qualifying Discovery participant with subsequent Confidence activity.
+Using the same wallet address allows the campaign to associate qualifying Discovery activity with subsequent Confidence purchases.
 
-Actual auction transactions and settlement results provide the underlying evidence of participation.
+### On-Chain Evidence
 
-### On-Chain Enforcement
+Auction participation produces observable blockchain transactions.
 
-Where participation restrictions affect economic eligibility, they should be enforced through appropriate contract mechanisms rather than relying solely on user interface validation.
+Qualification and reward calculations can be evaluated against actual bidding, clearing, and settlement information.
 
-Campaign-specific reward conditions must also be verifiable against the relevant auction results.
+### Contract Enforcement
 
-### Settlement-Based Rewards
+Economic eligibility conditions should be enforced through the appropriate on-chain mechanisms where necessary.
 
-Rewards are tied to actual qualifying purchases.
+User interface validation alone is not sufficient to guarantee purchase limits or prevent direct contract interactions that bypass campaign-specific rules.
 
-A submitted bid that does not produce an eligible settled purchase does not satisfy the Confidence reward requirement.
+### Settlement-Based Accounting
 
-This distinction matters because CCA bids and provisional fills can change as market competition evolves.
+Rewards are based on qualifying settled purchases.
+
+A bid that is submitted but produces no qualifying settled allocation does not satisfy the Confidence participation reward requirement.
+
+Current fills and clearing values support live projections, while final settlement establishes the authoritative results.
 
 ---
 
-## Participation & Market Development
+## Beyond Confidence
 
-The Reckoning is intended to establish more than an initial distribution of IRN.
+The Reckoning continues through three subsequent auctions:
 
-Through its auction stages, the campaign aims to develop a market, introduce participants to the underlying technology, and support the broader Gridiron ecosystem.
+- **03 — Momentum:** 10 billion IRN
+- **04 — Expansion:** 12.5 billion IRN
+- **05 — Peak:** 15 billion IRN
 
-Discovery provides an accessible starting point.
+These stages continue the campaign's market-driven distribution of IRN.
 
-Confidence introduces real economic commitment.
+Discovery qualification incentives are associated specifically with Confidence. They are not recurring reward allocations for every subsequent auction.
 
-Momentum, Expansion, and Peak continue the campaign through additional token distribution stages.
-
-The auction structure provides a foundation for subsequent liquidity and market participation, without requiring participants to join TradeSphere's broader organizational model.
+The broader objective is to establish an initial token economy, develop market participation, and support the Gridiron ecosystem.
 
 ## Current Status
 
-The Reckoning campaign and reward mechanics are being introduced progressively.
+The Reckoning's initial stages establish a progression from testnet qualification to mainnet participation.
 
-**Discovery** provides the initial qualification environment on Sepolia.
+Discovery provides the qualifying environment.
 
-**Confidence** is the planned first mainnet auction, subject to sufficient participation and successful validation.
+Confidence is the planned first mainnet auction, contingent on sufficient participation and successful validation.
 
-The matching reward reserve and lottery mechanisms require final implementation and confirmation of their detailed eligibility, distribution, and funding rules before public activation.
+The **5 billion IRN Discovery reserve** funds both the Confidence lottery bonus and participation rewards, with the lottery calculated first and the remaining reserve used for qualifying participant rewards.
 
-This document describes the intended campaign structure. Final operational terms will be published before the applicable mainnet auction.
+The detailed winner-selection, reward-priority, distribution, and enforcement mechanisms will be finalized and published before Confidence activation.
+
+Projected incentive amounts are not final until the auction's applicable settlement conditions have been satisfied.
 
 ---
 
