@@ -12,6 +12,147 @@ Academy builds on Uniswap CCA with additional capabilities for auction configura
 
 **Uniswap provides the auction protocol. Academy provides the environment for designing, operating, and understanding the auction.**
 
+## Academy Auctions & Staged Campaigns
+
+### Why Multiple Auctions?
+
+Uniswap Continuous Clearing Auctions provide a mechanism for distributing tokens and establishing prices through competitive bidding.
+
+A conventional launch may use one CCA followed by liquidity pool creation.
+
+Academy extends this approach to address the ongoing economic requirements of developing projects.
+
+Builders may need to:
+
+- Release token supply progressively.
+- Raise additional capital as development advances.
+- Establish and deepen liquidity.
+- Introduce new participants over time.
+- Evaluate demand before committing further supply.
+- Adjust future distribution strategies based on actual market behavior.
+
+A successful initial auction doesn't necessarily create sufficient liquidity for a functioning secondary market. Conversely, an undersubscribed auction may leave substantial supply undistributed and the project without enough capital to continue.
+
+**A staged campaign provides structure, continuity, and opportunities for adaptation.**
+
+### Campaign → CCA → Steps
+
+The model follows the same distribution principle at two levels.
+
+| Level | Responsibility |
+|---|---|
+| **Academy Auction** | Coordinates the campaign's allocation, stages, progression, and overall economic objectives |
+| **Uniswap CCA** | Executes an individual stage with its own configuration, bidding, clearing, and settlement |
+| **Steps / Rounds** | Define the token distribution schedule within an individual CCA |
+
+An Academy Auction distributes its campaign allocation across multiple CCAs, just as an individual CCA distributes its allocation across steps.
+
+Each underlying CCA remains an independent on-chain auction.
+
+The Academy application provides the unified campaign identity, cumulative accounting, and participant experience.
+
+### Independent Execution & Settlement
+
+Each CCA maintains its own lifecycle:
+
+- Deployment and configuration
+- Bidding and clearing
+- Graduation evaluation
+- Settlement
+- Exits and claims
+
+Participants can settle and claim according to the applicable CCA's rules without waiting for the entire campaign to conclude.
+
+The broader Academy Auction presents the campaign as a continuous progression, while execution remains separated into independently settled contracts.
+
+### Initial Liquidity After Confidence
+
+The Reckoning begins with Discovery on Sepolia, followed by Confidence on mainnet if qualification and progression conditions are met.
+
+**Following successful Confidence graduation, the project establishes its initial Uniswap liquidity pool.**
+
+This creates a secondary market before the remaining campaign stages are completed.
+
+Subsequent CCAs can then operate alongside the liquidity pool.
+
+The result is two complementary market mechanisms:
+
+| Market | Purpose |
+|---|---|
+| **Uniswap Liquidity Pool** | Continuous secondary trading between market participants |
+| **Academy CCA Stages** | Controlled primary token distribution and additional capital formation |
+
+This distinction is important because the campaign may continue for weeks or months.
+
+Participants should not have to wait until the final stage for the project to establish its intended secondary market.
+
+Pool creation requires sufficient designated assets and successful execution of the necessary liquidity-provisioning operations.
+
+### Adaptive Campaign Scheduling
+
+Individual CCAs operate under their published configuration and smart contract rules.
+
+The campaign can adjust the schedule and configuration of **future** CCAs based on previous results.
+
+Typical auction durations are expected to be approximately **3–4 days**, while intervals between stages may vary.
+
+Following each auction, the campaign can evaluate:
+
+- Participation and demand
+- Funds raised
+- Tokens distributed and unsold
+- Clearing price behavior
+- Ownership distribution
+- Available liquidity and trading conditions
+- Progress toward the project's economic objectives
+
+Strong results can justify a shorter interval before the next CCA.
+
+When a stage graduates but results are less encouraging, the project can allow more time for marketing, preparation, and scenario evaluation.
+
+The campaign does not alter the rules of a currently executing CCA in response to changing conditions.
+
+### Graduation & Termination
+
+Each stage has graduation requirements determining whether the campaign may continue.
+
+Graduation conditions should be measurable and published before participation begins.
+
+**Graduated:** The campaign may proceed to its next stage.
+
+**Not Graduated:** The current Academy Auction concludes.
+
+A failed stage does not require repeatedly extending or relaunching the same campaign.
+
+Projects can evaluate the results, reconsider their economic strategy, and initiate a new Academy Auction at a later date.
+
+The objective is to give projects flexibility without allowing an unsuccessful campaign to continue indefinitely.
+
+### The Reckoning — Example Campaign
+
+| Stage | Execution | Purpose |
+|---|---|---|
+| **01 — Discovery** | Sepolia CCA | Testnet participation and qualification |
+| **02 — Confidence** | Mainnet CCA | Initial capital formation and price discovery |
+| **Liquidity Launch** | Uniswap | Establish the initial secondary market after Confidence |
+| **03 — Momentum** | Mainnet CCA | Continue controlled distribution |
+| **04 — Expansion** | Mainnet CCA | Expand participation and capital formation |
+| **05 — Peak** | Mainnet CCA | Complete the planned campaign allocation |
+
+The campaign advances only while its stages satisfy their graduation requirements.
+
+The scheduling and configuration of future stages can respond to accumulated results.
+
+### Implementation Status
+
+Academy's individual CCA auction creation, execution, scenario evaluation, and replay capabilities are implemented.
+
+The broader **Academy Auction** abstraction—coordinating multiple CCAs, graduation, adaptive scheduling, and aggregate campaign state—is the next evolution of the application.
+
+The existing CCA contracts do not need to be replaced or modified to provide this coordination.
+
+Academy manages the campaign-level orchestration while Uniswap CCA continues to provide authoritative on-chain auction execution.
+
 ## How Continuous Clearing Works
 
 A CCA auction distributes a configured token supply over a defined period.
