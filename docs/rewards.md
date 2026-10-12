@@ -161,22 +161,15 @@ The bonus is funded directly from the 5 billion IRN Discovery reserve.
 
 The bonus is calculated using an amount equivalent to **3% of Confidence's settled USDC proceeds**, converted into IRN at the auction's final clearing price.
 
-\[
-\text{Lottery Bonus (IRN)}
-=
-\frac{0.03 \times \text{Settled USDC Proceeds}}
-{\text{Final Clearing Price (USDC/IRN)}}
-\]
+**Formula:**
+
+`Lottery Bonus (IRN) = (Settled USDC Proceeds × 0.03) / Final Clearing Price`
 
 For example, if Confidence settles 100,000 USDC at a clearing price of 0.00005 USDC per IRN:
 
-\[
-\text{Lottery Bonus}
-=
-\frac{3{,}000}{0.00005}
-=
-60{,}000{,}000\ \text{IRN}
-\]
+`Lottery Bonus = (100,000 × 0.03) / 0.00005`
+
+**Lottery Bonus = 60,000,000 IRN**
 
 The calculation establishes an IRN-denominated prize.
 
@@ -188,19 +181,21 @@ The lottery bonus is allocated first, directly from the Discovery incentive rese
 
 The remaining IRN becomes available for participation rewards.
 
-\[
-\text{Participation Reward Pool}
-=
-5{,}000{,}000{,}000
--
-\text{Lottery Bonus (IRN)}
-\]
+**Formula:**
+
+`Participation Reward Pool (IRN) = 5,000,000,000 - Lottery Bonus (IRN)`
+
+Using the calculated lottery bonus above:
+
+`Participation Reward Pool = 5,000,000,000 - 60,000,000`
+
+**Participation Reward Pool = 4,940,000,000 IRN**
 
 The combined lottery bonus and participation rewards cannot exceed the 5 billion IRN reserve.
 
 ### Live Bonus Estimates
 
-Because the clearing price and proceeds evolve throughout the auction, Academy can calculate a projected lottery bonus using current auction values.
+Because clearing prices and proceeds evolve throughout the auction, Academy can calculate a projected lottery bonus using current auction values.
 
 As the auction progresses:
 
@@ -211,7 +206,7 @@ As the auction progresses:
 
 These values are provisional until final settlement.
 
-The lottery bonus must remain within the available reserve; any applicable cap or exhaustion behavior will be specified in the final campaign rules.
+The lottery bonus must remain within the available reserve. Any applicable cap or exhaustion behavior will be specified in the final campaign rules.
 
 ### Winner Selection
 
@@ -227,17 +222,11 @@ After reserving the projected lottery bonus, the remaining IRN is available to r
 
 ### Reward Pool
 
-The participation reward pool is determined by:
+The participation reward pool is calculated as follows:
 
-\[
-\text{Reward Pool IRN}
-=
-\text{Discovery Reserve IRN}
--
-\text{Lottery Bonus IRN}
-\]
+`Reward Pool (IRN) = 5,000,000,000 - Lottery Bonus (IRN)`
 
-With the Discovery reserve fixed at 5 billion IRN, the participation reward pool changes as the projected lottery bonus changes.
+The pool changes as the projected lottery bonus changes throughout the auction.
 
 ### Reward Eligibility
 
