@@ -76,6 +76,10 @@ The same language and development environment support application logic, blockch
 
 JavaScript remains available where browser-specific functionality is required.
 
+![TradeSphere Academy — Application Interface](../assets/academy-overview.png)
+
+*Academy's Blazor Server application, built with .NET 10 and Fluent UI Blazor 5.*
+
 ## Fluent UI Blazor 5
 
 Academy uses **Fluent UI Blazor 5** for its application component framework.
