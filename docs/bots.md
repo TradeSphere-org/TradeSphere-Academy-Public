@@ -43,6 +43,10 @@ An auction's execution scenario defines the economic environment in which partic
 
 A scenario includes the auction's distribution strategy and parameters governing automated participation.
 
+![TradeSphere Academy — Automated Auction Scenario](../assets/academy-auction.png)
+
+*Automated participants competing in a configurable mock auction scenario.*
+
 ### Auction Parameters
 
 | Parameter | Purpose |
