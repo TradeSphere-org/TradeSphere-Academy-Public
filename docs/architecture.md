@@ -12,7 +12,7 @@ Academy operates independently of the broader TradeSphere organizational model. 
 
 **TradeSphere provides the infrastructure. Projects build their own economies.**
 
-![TradeSphere Application Stack](../assets/architecture.png)
+![TradeSphere Application Stack](../assets/academy-architecture.png)
 
 *TradeSphere application stack — applications, core services, and supporting blockchain infrastructure.*
 
