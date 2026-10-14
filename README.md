@@ -1,12 +1,14 @@
 # TradeSphere Academy
 
-**On-Chain Auctions · Continuous Price Discovery · Scenario-Driven Execution**
+**On-Chain Auctions · Continuous Price Discovery · Market-Driven Token Launches**
 
-TradeSphere Academy is a dedicated application for creating, operating, and participating in on-chain token auctions.
+**Great projects need more than great ideas. They need an economy.**
 
-Built around **Uniswap's Continuous Clearing Auction (CCA) protocol**, Academy combines Ethereum smart contracts with real-time auction visualization, wallet connectivity, position management, and TradeSphere's scenario-driven execution architecture.
+TradeSphere Academy helps projects launch token economies through on-chain auctions, market-driven funding, price discovery, and community participation.
 
-The application is operational, with ongoing development focused on auction capabilities, automation, and integration with the broader TradeSphere ecosystem.
+Built on **Uniswap's Continuous Clearing Auction (CCA)** protocol, Academy provides the infrastructure to design, test, operate, and participate in token launches.
+
+Our approach goes beyond a single auction. Projects can distribute tokens progressively, raise capital, establish liquidity, and develop their markets through staged campaigns.
 
 **Working software. Real blockchain transactions. Observable results.**
 
@@ -16,214 +18,241 @@ The application is operational, with ongoing development focused on auction capa
 
 ## Why Academy?
 
-**Great projects need more than great ideas. They need an economy.**
+**Launching a token is an event. Building an economy is a process.**
 
-TradeSphere Academy is designed to help new projects get off the ground through cryptocurrency tokenomics, market-driven funding, and community participation.
+An initial token sale may establish a price, but projects need more than a launch event to succeed. They need participants, capital, liquidity, and opportunities to grow.
 
-Through on-chain auctions, projects can establish their initial economic foundation, distribute tokens, discover market value, and attract the participants who will help bring them to life.
+Academy provides a structured approach to building that foundation.
 
-Along the way, participants learn by doing—exploring blockchain technology, developing strategies, and experiencing decentralized markets firsthand.
+Projects can:
+
+- Introduce token supply through competitive on-chain auctions.
+- Discover prices through actual bids rather than arbitrary valuations.
+- Raise capital as development progresses.
+- Establish and expand secondary-market liquidity.
+- Attract participants through successive campaign stages.
+- Test economic strategies before committing real assets.
+
+Participants can discover emerging projects, bid for tokens, develop strategies, and take part in building new economies.
 
 ### And Then Comes Graduation
 
 Academy isn't the destination. It's the beginning.
 
-Once a project establishes its economic foundation, it can graduate into the broader TradeSphere ecosystem, gaining access to infrastructure for organizations, actors, activities, and participation markets.
+Projects that establish their economic foundation can expand into the broader TradeSphere ecosystem, using infrastructure for organizations, Actors, activities, and participation markets.
 
-**Projects remain independent.** They retain ownership and control of their organizations, tokens, communities, subscribers, and economic relationships. TradeSphere provides the infrastructure, tools, and services to help them operate and grow.
+**Projects remain independent.** They retain ownership and control of their tokens, organizations, communities, subscribers, and economic relationships.
 
-Graduation is a progression, not a requirement. Projects are free to chart their own course.
+Graduation into TradeSphere is an opportunity, not a requirement.
 
 **Your project. Your economy. Your future.**
 
-## Why More Than One Auction?
+---
 
-**Launching a token is an event. Building an economy is a process.**
+## One Academy Auction. Multiple Uniswap CCAs.
 
-Traditional token launches often follow a one-and-done approach: distribute tokens, establish a liquidity pool, and leave the market to determine what happens next.
+A conventional token launch often involves one auction followed by liquidity pool creation.
 
-That can work for some projects. But builders face a different challenge. They need capital, participants, token distribution, and sufficient liquidity to support an economy as their projects develop.
+Academy's evolving campaign model introduces a broader approach: an **Academy Auction** coordinates multiple independently executed Uniswap CCAs.
 
-A single auction may establish an initial market price without generating enough capital or liquidity to sustain meaningful trading.
+Each stage has its own bidding, clearing, settlement, exits, and claims.
 
-Academy is designed to support a more progressive approach.
+Completed stages contribute to the campaign's cumulative results, allowing future auction configurations and schedules to respond to actual participation.
 
-### One Academy Auction. Multiple Uniswap CCAs.
+Every stage must meet its published minimum funding requirement to graduate. If it fails, the current campaign concludes.
 
-An Academy Auction can organize a series of independently executed Uniswap Continuous Clearing Auctions into one coordinated campaign.
+The objective is not to guarantee success or eliminate market risk. It is to provide a repeatable, market-driven framework for launching and developing token economies.
 
-Each stage provides an opportunity to distribute tokens, raise capital, and evaluate market participation.
+*Individual CCA execution is operational. Unified campaign orchestration and adaptive progression are planned extensions.*
 
-**The Reckoning** illustrates this approach through five stages:
+### Liquidity & Treasury Growth
 
-**Discovery → Confidence → Momentum → Expansion → Peak**
+A successful initial mainnet auction can establish the project's first Uniswap liquidity pool.
 
-Discovery establishes qualification and participation on Sepolia. Confidence introduces real economic commitments on mainnet.
+Subsequent auctions can contribute additional assets to the existing pool and increase treasury reserves.
 
-Following a successful Confidence auction, the project can establish its Uniswap liquidity pool, allowing secondary-market trading while subsequent auction stages continue.
+This allows funding and market liquidity to develop throughout a campaign instead of depending entirely on the initial launch.
 
-Each CCA retains its own bidding, clearing, settlement, exits, and claims.
+**The auction launches the market. The campaign helps build the economy.**
 
-### Controlled Distribution. Adaptive Progression.
-
-Rather than releasing the entire campaign allocation at once, projects can distribute tokens progressively.
-
-Results from completed auctions can inform the timing and configuration of subsequent stages.
-
-Strong participation may justify advancing quickly. Weaker participation may warrant additional preparation and outreach.
-
-Each stage must meet its published graduation requirements to continue. If a stage fails to graduate, the current campaign concludes. The project remains free to regroup and launch another Academy Auction later.
-
-**The goal isn't to guarantee prices or eliminate risk. It's to provide builders with a structured, market-driven approach to developing their economies.**
-
-Academy combines independent on-chain auctions into a larger economic progression while preserving the transparency and execution rules of Uniswap CCA.
-
-*The individual auction capabilities are operational. Unified campaign orchestration and adaptive progression are part of Academy's evolving architecture.*
-
-### Building It. Using It. Proving It.
-
-We're putting Academy to work on our own projects first.
-
-**IRN** provides the initial tokenomics, while **Gridiron** introduces a competitive approach to building liquidity pools, bringing projects, teams, and participants together around shared economic opportunities.
-
-Through *The Reckoning* campaign, we're using Academy to bootstrap our own ecosystem, validate the technology, and refine the economic model through actual participation.
-
-The objective goes beyond launching a token. We're developing a repeatable approach that other projects can use to establish markets, attract participants, build liquidity, and grow independent economies.
-
-**We're building the infrastructure we intend to use—and making it available for others to build on.**
-
-## Powered by Uniswap CCA
-
-Academy integrates Uniswap's Continuous Clearing Auction protocol for transparent, on-chain price discovery.
-
-CCA distributes tokens continuously over an auction period while bids compete for available supply. Clearing prices and provisional allocations evolve as new bids enter the market.
-
-TradeSphere builds on this foundation with:
-
-- Real-time auction monitoring and visualization
-- Bid creation and position management
-- Round-based token flow and clearing displays
-- On-chain settlement and token claims
-- Scenario-driven auction execution and simulation
-- Automated bidders with configurable behaviors
-- Auction replay and result verification
-
-**Protocol documentation:** [Uniswap Liquidity Launchpad / CCA](https://developers.uniswap.org/docs/liquidity/liquidity-launchpad/overview)
-
-Uniswap provides the underlying auction protocol. TradeSphere Academy provides the application, execution services, and participant experience around it.
-
-## How Auctions Work
-
-Participants connect an Ethereum-compatible wallet, select an auction, and place bids specifying spending limits and maximum prices.
-
-As the auction progresses, tokens become available according to the configured release schedule. Bids compete for available supply, and the clearing price determines which bids receive allocations.
-
-Auction positions are dynamic. New bids can change provisional allocations, including reducing or eliminating a previously winning position.
-
-When the auction concludes, final settlement determines token allocations, spending, claims, and recoverable funds.
-
-![TradeSphere Academy — Auction Execution](assets/academy-auction.png)
-
-*Academy Test execution — automated bidding, continuous clearing, rounds, token flow, and market activity.*
-
-**[Detailed auction mechanics](docs/auction.md)**
-
-## Technology
-
-Academy is built with modern .NET technologies and Ethereum infrastructure.
-
-| Technology | Role |
-|---|---|
-| **Blazor Server / .NET 10** | Interactive application and server-side services |
-| **Fluent UI Blazor 5** | User interface components |
-| **Nethereum** | Smart contract and Ethereum integration |
-| **Uniswap CCA** | On-chain auction protocol |
-| **Reown** | Wallet connectivity |
-| **MetaMask** | Ethereum wallet interaction |
-| **Infura** | Ethereum RPC infrastructure |
-| **Microsoft Azure** | Hosting and application infrastructure |
-
-The application uses Blazor Server for interface rendering and server-managed updates, with JavaScript and Reown handling wallet interactions.
-
-This architecture centralizes blockchain monitoring rather than requiring every connected browser to perform independent RPC polling.
-
-**[Technology details](docs/technology.md)** · **[Architecture](docs/architecture.md)**
-
-## Scenarios, Bots & Replay
-
-Academy also demonstrates capabilities from the broader TradeSphere execution architecture.
-
-### Scenario-Driven Execution
-
-Auction scenarios define execution parameters such as duration, token release schedules, participant behavior, and operating conditions.
-
-TradeSphere's execution services support simulation, controlled testing, and live operation.
-
-### Automated Participants
-
-Configurable bots can participate in auction scenarios with different bidding behaviors and strategies.
-
-Bots help evaluate auction dynamics, clearing behavior, competition, and system performance under varying participation conditions.
-
-### Replay & Verification
-
-Auction activity can be reconstructed and replayed from recorded events.
-
-Replay also recalculates auction results, providing a means to analyze execution behavior and compare reconstructed values with observed outcomes.
-
-**[Bots & Scenarios](docs/bots.md)** · **[Architecture](docs/architecture.md)**
+---
 
 ## Featured Campaign — Gridiron: The Reckoning
 
-The Reckoning is a planned five-auction campaign introducing IRN participation within the TradeSphere ecosystem.
+We're putting Academy to work on our own projects first.
 
-| Stage | Network | Purpose |
-|---|---|---|
-| **Discovery** | Sepolia | Qualification and community discovery |
-| **Confidence** | Mainnet | Initial economic auction and participant rewards |
-| **Momentum** | Mainnet | Continued market participation |
-| **Expansion** | Mainnet | Broader participation |
-| **Peak** | Mainnet | Final campaign stage |
+**Gridiron: The Reckoning** is a five-stage campaign introducing the IRN token economy through progressive distribution, funding, and participation.
 
-Discovery uses Sepolia test assets to let participants experience auction mechanics and establish eligibility for potential mainnet rewards.
+| Stage | Network | Purpose | Liquidity |
+|---|---|---|---|
+| **01 — Discovery** | Sepolia | Participation and qualification | — |
+| **02 — Confidence** | Mainnet | Initial funding and price discovery | Launch initial pool |
+| **03 — Momentum** | Mainnet | Continue controlled distribution | Add liquidity |
+| **04 — Expansion** | Mainnet | Broaden participation and capital formation | Add liquidity |
+| **05 — Peak** | Mainnet | Complete the planned campaign allocation | Add liquidity |
 
-If sufficient interest is demonstrated, the campaign is intended to progress to Confidence on mainnet.
+Each stage advances only if its predecessor graduates. Subsequent stages can contribute additional assets to the existing liquidity pool and project treasury.
 
-The Confidence stage includes proposed matching IRN rewards for eligible Discovery participants who complete qualifying settled purchases, together with an additional IRN bonus lottery.
+### Discovery — Learn, Participate, Qualify
 
-These incentives are campaign-specific and subject to the published rules and the mainnet launch proceeding.
+Discovery operates on Ethereum Sepolia using test assets and actual blockchain transactions.
+
+Participants can experience the auction, place bids, and establish eligibility for matching rewards during Confidence without committing real purchase funds.
+
+**Qualification requires auction participation, not simply connecting a wallet.**
+
+### Confidence — Real Participation, Real Incentives
+
+Confidence is the planned first mainnet auction, conditional on Discovery meeting its progression requirements.
+
+Participants can purchase IRN through Uniswap CCA, with two additional incentives:
+
+- **IRN Matching Rewards:** Qualified Discovery participants who make eligible settled Confidence purchases can receive additional IRN. Matching is proportional when qualifying demand exceeds the available reward reserve.
+- **USDC + IRN Bonus Lottery:** Eligible Confidence participants can qualify for a bonus calculated from 3% of settled USDC proceeds, together with an equivalent IRN amount based on the final clearing price. Discovery participation is not required for lottery eligibility.
+
+The campaign reserves **5 billion IRN** for the IRN bonus and proportional matching rewards.
+
+Matching eligibility requires the same wallet address used during Discovery and a qualifying settled Confidence purchase within the published limits.
+
+The lottery, matching distributions, and final eligibility rules are subject to the applicable campaign conditions.
 
 **[Rewards & Qualification](docs/rewards.md)**
+
+---
+
+## Powered by Uniswap CCA
+
+Academy uses **Uniswap Continuous Clearing Auctions** for on-chain token distribution and price discovery.
+
+Participants submit bids specifying their spending limits and maximum acceptable prices.
+
+Tokens become available over time according to the auction's configured distribution schedule. Competing bids influence the clearing price and allocations.
+
+Academy makes that execution visible through:
+
+- Live auction metrics and clearing prices
+- Round-based token flow visualization
+- Wallet-connected bidding and position management
+- Realized and unrealized allocation calculations
+- On-chain settlement and claims
+- Scenario testing, automated test bots, and replay
+
+![TradeSphere Academy — Live Auction Execution](assets/academy-auction.gif)
+
+*Academy Test execution — configurable rounds, token flow, automated bidding, and continuous clearing.*
+
+**Uniswap provides the auction protocol. Academy provides the tools to configure, operate, and understand it.**
+
+[Detailed Auction Mechanics](docs/auction.md) · [Uniswap CCA Documentation](https://developers.uniswap.org/docs/liquidity/liquidity-launchpad/overview)
+
+---
+
+## Built with Modern .NET & Ethereum Technology
+
+Academy combines a predominantly C# application stack with Ethereum smart contracts and participant-controlled wallets.
+
+| Technology | Role |
+|---|---|
+| **.NET 10 / Blazor Server** | Interactive application and server-managed services |
+| **Fluent UI Blazor 5** | Component framework and user interface |
+| **Nethereum** | Blockchain integration, contract operations, and managed transactions |
+| **Reown** | Connected-wallet authorization and transactions |
+| **Uniswap CCA** | On-chain auction execution and price discovery |
+| **Ethereum / Sepolia** | Mainnet and testnet execution |
+| **Infura** | Blockchain RPC infrastructure |
+| **Microsoft Azure** | Application hosting |
+
+Academy uses **Blazor Server** to coordinate auction state, calculations, monitoring, and real-time UI updates. JavaScript and Reown handle participant wallet interactions directly in the browser.
+
+Centralized blockchain monitoring reduces redundant RPC activity across connected participants.
+
+We've also upgraded to **Fluent UI Blazor 5**, combining Microsoft's Fluent components with Academy's custom auction controls, visualizations, and market interfaces.
+
+[Technology Stack](docs/technology.md) · [Architecture](docs/architecture.md)
+
+---
+
+## Scenarios, Test Bots & Replay
+
+A successful auction launch requires more than a working smart contract. It requires understanding how the auction behaves under different conditions.
+
+Academy's scenario executor supports three environments:
+
+| Environment | Purpose |
+|---|---|
+| **Test** | Accelerated off-chain simulation and evaluation |
+| **Sim** | On-chain testnet validation using real contracts and test assets |
+| **Live** | Mainnet execution with real economic commitments |
+
+Scenarios can progress from **Test → Sim → Live**, preserving their distribution strategy while applying the appropriate network configuration.
+
+### Behavioral Test Bots
+
+Academy includes controlled test bots with configurable bidding strategies and behavioral models.
+
+The framework incorporates five bidding strategies, sixteen Myers-Briggs personality profiles, four temperaments, and quantitative behavioral biases.
+
+These models introduce variation in participation, price sensitivity, spending, and competitive behavior.
+
+**Academy test bots are not independent external Agents.** They are controlled participants used for simulation, testing, and validation.
+
+TradeSphere already operates bots and scenarios across Ideas, Missions, and Games. Academy's enhanced behavioral model is designed to extend those existing capabilities.
+
+### Replay & Verification
+
+Auction execution can be reconstructed and replayed, allowing calculated results to be compared against recorded activity.
+
+Test bots, scenario administration, and replay are implemented capabilities that currently remain restricted to administrators.
+
+[Test Bots & Scenarios](docs/bots.md)
+
+---
+
+## Built First. Proven Through Use.
+
+Academy is operational, with public access focused on discovering and participating in existing auctions.
+
+The underlying application already supports token and auction creation, scenario configuration, automated testing, blockchain execution, and replay.
+
+These creation and administration capabilities remain restricted during the initial launch period.
+
+We're using the IRN campaign to validate the technology and economic approach through actual participation before expanding access to other projects.
+
+**We're building the infrastructure we intend to use—and making it available for others to build on.**
+
+---
 
 ## Documentation
 
 | Document | Description |
 |---|---|
-| [Architecture](docs/architecture.md) | Application structure, services, and execution model |
-| [Auction Mechanics](docs/auction.md) | Continuous clearing, bidding, token flow, and settlement |
-| [Technology](docs/technology.md) | Frameworks, libraries, and blockchain integrations |
-| [Bots & Scenarios](docs/bots.md) | Automated participants, simulation, and replay |
-| [Rewards](docs/rewards.md) | The Reckoning campaign incentives and qualification |
+| [Architecture](docs/architecture.md) | Application structure, campaign model, registration, and services |
+| [Auction Mechanics](docs/auction.md) | Continuous clearing, bidding, flow, allocations, and settlement |
+| [Technology Stack](docs/technology.md) | Frameworks, blockchain integration, and hosting |
+| [Test Bots & Scenarios](docs/bots.md) | Behavioral simulation, Test/Sim/Live, and replay |
+| [Rewards & Qualification](docs/rewards.md) | Discovery eligibility, Confidence matching, and bonus lottery |
 
 ## Where's the Code?
 
-TradeSphere Academy's application source is maintained in a private development repository.
+TradeSphere Academy's application source is currently maintained in a private development repository.
 
-This repository provides public-facing technical documentation, architecture, implementation explanations, and demonstrations of the working system.
+This repository presents the architecture, technology, implementation details, and demonstrations of the working system.
 
 Selected libraries, components, and integration interfaces may be released separately as they become ready.
 
 **The software is real. The source is private for now.**
 
+---
+
 ## Explore TradeSphere
 
-**[TradeSphere Website](https://www.tradesphere.org)** — The ecosystem and its applications.
+**[TradeSphere Website](https://www.tradesphere.org)** — Explore the ecosystem and its applications.
 
-**[TradeSphere GitHub Organization](https://github.com/TradeSphere-org)** — Platform architecture, projects, and documentation.
+**[TradeSphere GitHub Organization](https://github.com/TradeSphere-org)** — Projects, architecture, and technical documentation.
 
-**[Uniswap CCA Documentation](https://developers.uniswap.org/docs/liquidity/liquidity-launchpad/overview)** — The underlying auction protocol.
+**[Uniswap CCA](https://developers.uniswap.org/docs/liquidity/liquidity-launchpad/overview)** — The underlying auction protocol.
 
-**[Fluent UI Blazor](https://www.fluentui-blazor.net/)** — The application component library.
+**[Fluent UI Blazor](https://www.fluentui-blazor.net/)** — The application component framework.
 
 **[Discord](https://discord.gg/QkJqp4snHQ)** — Community and discussion.
 

@@ -4,236 +4,118 @@
 
 TradeSphere Academy uses **Uniswap's Continuous Clearing Auction (CCA)** protocol for on-chain token distribution and price discovery.
 
-Unlike a conventional fixed-price token sale, a continuous clearing auction allows participants to compete for allocations while tokens are released over time.
+Participants bid for tokens as supply is released over time. Clearing prices and allocations respond to demand under the protocol's rules.
 
-Bids, available supply, and clearing prices interact throughout the auction, creating a dynamic market for the initial distribution of tokens.
+Academy extends CCA with configurable distribution scenarios, automated participants, real-time visualization, and replay.
 
-Academy builds on Uniswap CCA with additional capabilities for auction configuration, scenario testing, simulation, automated participation, monitoring, visualization, and replay.
+**Uniswap provides the auction protocol. Academy provides the tools to configure, operate, and understand it.**
 
-**Uniswap provides the auction protocol. Academy provides the environment for designing, operating, and understanding the auction.**
+---
 
 ## Academy Auctions & Staged Campaigns
 
 ### Why Multiple Auctions?
 
-Uniswap Continuous Clearing Auctions provide a mechanism for distributing tokens and establishing prices through competitive bidding.
+A single auction can establish an initial market price, but it may not generate sufficient capital or liquidity to support a developing project.
 
-A conventional launch may use one CCA followed by liquidity pool creation.
+Builders need a way to introduce supply progressively, attract participants, and finance continued development without committing their entire token allocation at launch.
 
-Academy extends this approach to address the ongoing economic requirements of developing projects.
-
-Builders may need to:
-
-- Release token supply progressively.
-- Raise additional capital as development advances.
-- Establish and deepen liquidity.
-- Introduce new participants over time.
-- Evaluate demand before committing further supply.
-- Adjust future distribution strategies based on actual market behavior.
-
-A successful initial auction doesn't necessarily create sufficient liquidity for a functioning secondary market. Conversely, an undersubscribed auction may leave substantial supply undistributed and the project without enough capital to continue.
-
-**A staged campaign provides structure, continuity, and opportunities for adaptation.**
+Academy's staged campaign model addresses these requirements through controlled distribution and successive funding opportunities.
 
 ### Campaign → CCA → Steps
 
-The model follows the same distribution principle at two levels.
+An **Academy Auction** represents a campaign composed of multiple independently executed Uniswap CCAs.
 
 | Level | Responsibility |
 |---|---|
-| **Academy Auction** | Coordinates the campaign's allocation, stages, progression, and overall economic objectives |
-| **Uniswap CCA** | Executes an individual stage with its own configuration, bidding, clearing, and settlement |
-| **Steps / Rounds** | Define the token distribution schedule within an individual CCA |
+| **Academy Auction** | Campaign allocation, stages, graduation, scheduling, and cumulative results |
+| **CCA Stage** | Independent auction execution, clearing, settlement, exits, and claims |
+| **Steps / Rounds** | Token distribution schedule within an individual CCA |
 
-An Academy Auction distributes its campaign allocation across multiple CCAs, just as an individual CCA distributes its allocation across steps.
+The structure applies distribution at two levels: a campaign allocates supply across CCA stages, and each CCA distributes its supply across steps.
 
-Each underlying CCA remains an independent on-chain auction.
+Participants experience one Academy Auction while the underlying CCAs operate independently.
 
-The Academy application provides the unified campaign identity, cumulative accounting, and participant experience.
+### Graduation & Progression
 
-### Independent Execution & Settlement
+Each stage must meet its published minimum funding requirement to graduate.
 
-Each CCA maintains its own lifecycle:
+- **Graduated:** The campaign may advance to the next stage.
+- **Not Graduated:** The current campaign ends. The project may launch another Academy Auction later.
 
-- Deployment and configuration
-- Bidding and clearing
-- Graduation evaluation
-- Settlement
-- Exits and claims
+Completed stage results can inform the timing and configuration of future stages.
 
-Participants can settle and claim according to the applicable CCA's rules without waiting for the entire campaign to conclude.
+Typical CCA durations are expected to be approximately **3–4 days**. Strong participation may justify shorter intervals between stages; slower development may warrant additional preparation and outreach.
 
-The broader Academy Auction presents the campaign as a continuous progression, while execution remains separated into independently settled contracts.
+The terms of an active CCA remain unchanged. Adjustments apply to future stages.
 
-### Initial Liquidity After Confidence
+### Liquidity Development
 
-The Reckoning begins with Discovery on Sepolia, followed by Confidence on mainnet if qualification and progression conditions are met.
+Following successful Confidence graduation, the project intends to establish its initial Uniswap liquidity pool.
 
-**Following successful Confidence graduation, the project establishes its initial Uniswap liquidity pool.**
-
-This creates a secondary market before the remaining campaign stages are completed.
-
-Subsequent CCAs can then operate alongside the liquidity pool.
-
-The result is two complementary market mechanisms:
+This creates two complementary markets:
 
 | Market | Purpose |
 |---|---|
-| **Uniswap Liquidity Pool** | Continuous secondary trading between market participants |
-| **Academy CCA Stages** | Controlled primary token distribution and additional capital formation |
+| **Uniswap Liquidity Pool** | Ongoing secondary-market trading |
+| **Academy CCA Stages** | Controlled primary distribution and capital formation |
 
-This distinction is important because the campaign may continue for weeks or months.
+Later CCA stages can operate alongside the liquidity pool, introducing additional supply and funding opportunities as the project develops.
 
-Participants should not have to wait until the final stage for the project to establish its intended secondary market.
+Pool creation depends on the availability of designated assets and the completion of the required liquidity operations.
 
-Pool creation requires sufficient designated assets and successful execution of the necessary liquidity-provisioning operations.
+### The Reckoning Campaign
 
-### Adaptive Campaign Scheduling
+*Gridiron: The Reckoning* illustrates the staged approach.
 
-Individual CCAs operate under their published configuration and smart contract rules.
+| Stage | Network | Purpose | Liquidity |
+|---|---|---|---|
+| **01 — Discovery** | Sepolia | Participation and qualification | — |
+| **02 — Confidence** | Mainnet | Initial funding and price discovery | Launch initial pool |
+| **03 — Momentum** | Mainnet | Continue controlled distribution | Add liquidity |
+| **04 — Expansion** | Mainnet | Broaden participation and capital formation | Add liquidity |
+| **05 — Peak** | Mainnet | Complete the planned campaign allocation | Add liquidity |
 
-The campaign can adjust the schedule and configuration of **future** CCAs based on previous results.
+Each stage advances only if the preceding CCA graduates. Subsequent stages can contribute additional assets to the existing liquidity pool and project treasury.
 
-Typical auction durations are expected to be approximately **3–4 days**, while intervals between stages may vary.
+**Implementation status:** Individual CCA execution is operational. Unified campaign orchestration, adaptive scheduling, and campaign-level graduation are part of Academy's evolving implementation.
 
-Following each auction, the campaign can evaluate:
+---
 
-- Participation and demand
-- Funds raised
-- Tokens distributed and unsold
-- Clearing price behavior
-- Ownership distribution
-- Available liquidity and trading conditions
-- Progress toward the project's economic objectives
+## Continuous Clearing Mechanics
 
-Strong results can justify a shorter interval before the next CCA.
+A CCA releases a configured token supply over a defined period.
 
-When a stage graduates but results are less encouraging, the project can allow more time for marketing, preparation, and scenario evaluation.
+Participants submit bids specifying how much they are willing to spend and the maximum price they will accept.
 
-The campaign does not alter the rules of a currently executing CCA in response to changing conditions.
+As supply becomes available, the protocol determines allocations from the active bids.
 
-### Graduation & Termination
-
-Each stage has graduation requirements determining whether the campaign may continue.
-
-Graduation conditions should be measurable and published before participation begins.
-
-**Graduated:** The campaign may proceed to its next stage.
-
-**Not Graduated:** The current Academy Auction concludes.
-
-A failed stage does not require repeatedly extending or relaunching the same campaign.
-
-Projects can evaluate the results, reconsider their economic strategy, and initiate a new Academy Auction at a later date.
-
-The objective is to give projects flexibility without allowing an unsuccessful campaign to continue indefinitely.
-
-### The Reckoning — Example Campaign
-
-| Stage | Execution | Purpose |
-|---|---|---|
-| **01 — Discovery** | Sepolia CCA | Testnet participation and qualification |
-| **02 — Confidence** | Mainnet CCA | Initial capital formation and price discovery |
-| **Liquidity Launch** | Uniswap | Establish the initial secondary market after Confidence |
-| **03 — Momentum** | Mainnet CCA | Continue controlled distribution |
-| **04 — Expansion** | Mainnet CCA | Expand participation and capital formation |
-| **05 — Peak** | Mainnet CCA | Complete the planned campaign allocation |
-
-The campaign advances only while its stages satisfy their graduation requirements.
-
-The scheduling and configuration of future stages can respond to accumulated results.
-
-### Implementation Status
-
-Academy's individual CCA auction creation, execution, scenario evaluation, and replay capabilities are implemented.
-
-The broader **Academy Auction** abstraction—coordinating multiple CCAs, graduation, adaptive scheduling, and aggregate campaign state—is the next evolution of the application.
-
-The existing CCA contracts do not need to be replaced or modified to provide this coordination.
-
-Academy manages the campaign-level orchestration while Uniswap CCA continues to provide authoritative on-chain auction execution.
-
-## How Continuous Clearing Works
-
-A CCA auction distributes a configured token supply over a defined period.
-
-Participants submit bids expressing how much they are willing to spend and the maximum price they are willing to pay.
-
-As tokens become available, the auction determines allocations according to the active bids and the protocol's clearing rules.
-
-The clearing price can rise as competition increases but does not decrease during the auction.
-
-Participants bidding below the current clearing price may lose their ability to receive additional allocations.
-
-### Key Concepts
+The clearing price is nondecreasing: it may remain unchanged or increase, but cannot move backward.
 
 | Concept | Description |
 |---|---|
-| Base Token | Token being distributed |
-| Quote Token | Asset used to purchase the base token |
-| Supply | Total base tokens allocated to the auction |
-| Floor Price | Minimum clearing price |
-| Bid Amount | Quote-token spending commitment |
-| Maximum Price | Highest price a participant accepts |
-| Clearing Price | Price determined by competing bids and available supply |
-| Flow Rate | Rate at which auction tokens become available |
-| Fill | Tokens allocated to a bid through clearing |
-| Settlement | Final accounting of funds and token allocations |
+| **Base Token** | Token being distributed |
+| **Quote Token** | Asset used to purchase the base token |
+| **Supply** | Total base tokens allocated to the CCA |
+| **Floor Price** | Minimum clearing price |
+| **Spending Cap** | Maximum quote-token commitment |
+| **Price Ceiling** | Highest price accepted by a bidder |
+| **Clearing Price** | Price determined by qualifying demand and available supply |
+| **Flow Rate** | Rate at which auction tokens become available |
+| **Fill** | Tokens allocated to a bid |
+| **Checkpoint** | Recorded cumulative auction execution state |
 
-The auction contract is authoritative for clearing, allocations, and settlement.
-
-Academy's calculations and visualizations explain and reconstruct that execution.
+The smart contracts remain authoritative for clearing and settlement. Academy maintains corresponding calculations for monitoring, simulation, and verification.
 
 ---
 
-## Auction Configuration
+## Rounds, Steps & Token Flow
 
-Before deployment, an auction is configured through Academy's registration and scenario models.
+Academy organizes each CCA's distribution schedule into **rounds (steps)**.
 
-### Contract Configuration
-
-Auction configuration includes:
-
-- Base and quote token addresses
-- Total auction supply
-- Floor price
-- Pricing tick spacing
-- Minimum funding requirements, where configured
-- Auction start and end times
-- Claim timing
-- Token and funds recipients
-
-These parameters determine the assets, economic constraints, and on-chain operating conditions of the auction.
-
-### Distribution Scenario
-
-The associated scenario defines how tokens are released during the auction.
-
-This includes the allocation, duration, rounds or steps, and token flow rates.
-
-Academy allows different scenarios to be evaluated through its Test and Sim environments before moving into Live execution.
-
-For the full execution architecture, see [Architecture](architecture.md).
-
----
-
-## Rounds, Steps & Flow
-
-Uniswap CCA supports token distribution over time.
-
-Academy organizes that distribution into **rounds (steps)** to make the changing release schedule easier to understand.
-
-A scenario may distribute different percentages of its supply over different portions of the auction's duration.
-
-Each round can therefore have its own flow characteristics.
-
-![TradeSphere Academy — Auction Execution](../assets/academy-auction.png)
-
-*Test auction showing the current round, token flow, clearing information, competing bids, and bid controls.*
+A round has a defined duration and allocation of the auction's supply. Its flow rate depends on the relationship between those values.
 
 ### Distribution Example
-
-Consider an auction configured with five rounds.
 
 | Round | Duration Share | Supply Share |
 |---|---:|---:|
@@ -243,299 +125,195 @@ Consider an auction configured with five rounds.
 | 4 | 20% | 25% |
 | 5 | 20% | 15% |
 
-*Illustrative configuration, not a prescribed distribution.*
-
-Each round releases tokens at a rate determined by its allocated supply and duration.
-
-A round allocating more tokens over the same duration has a higher flow rate.
+*Illustrative configuration. Equal round durations produce flow rates proportional to the allocated supply.*
 
 ### Flow Visualization
 
-Academy's flow indicator helps participants understand:
+![TradeSphere Academy — Auction Execution](../assets/academy-auction.png)
 
-- The current round or step
-- The relative distribution rate
-- The amount of supply allocated to each round
-- How much of the current round's supply remains
+*Academy Test auction showing rounds, token flow, clearing, bids, and participant controls.*
 
-This makes the auction's distribution schedule visible without requiring participants to interpret contract checkpoints.
+The flow indicator displays the active round, its relative release rate, allocated supply, and remaining tokens.
 
-**Rounds represent changes in distribution conditions, not separate auctions.**
+Rounds describe changes in distribution conditions, not independent auctions.
+
+### Realized & Unrealized Allocations
+
+Allocations have distinct states during execution.
+
+**Unrealized**
+
+Current-round fills remain subject to changing bid competition and clearing conditions.
+
+**Realized**
+
+At a completed round boundary, that round's fills are established. A bid may be partially or fully filled.
+
+**Continued Allocation**
+
+Eligible bids can receive additional fills in subsequent rounds.
+
+A participant's cumulative allocation can therefore include both realized fills from completed rounds and unrealized fills from the current round.
+
+This distinction describes the auction calculations. Separate realized and unrealized position fields and UI presentation are planned enhancements.
 
 ---
 
-## Bidding
+## Bidding & Price Discovery
 
-Participants connect their wallets and submit bids using the auction's quote token.
+Participants connect their wallets and place bids using the auction's quote token.
 
-Each bid expresses two principal constraints:
+Each bid specifies two principal constraints:
 
-**Spending Cap**
-
-The maximum amount of quote tokens committed to the bid.
-
-**Price Ceiling**
-
-The maximum price the participant is willing to pay for the base token.
-
-These constraints define the participant's willingness to compete for allocation.
+- **Spending Cap:** The maximum quote-token amount committed.
+- **Price Ceiling:** The maximum price the participant accepts for the base token.
 
 ### Bid Submission
 
-A participant:
+1. Connect a supported wallet and select the appropriate network.
+2. Review the auction's current clearing price and bid conditions.
+3. Configure the spending cap and price ceiling.
+4. Authorize any required ERC-20 allowances, including Permit2 where applicable.
+5. Submit the transaction through the connected wallet.
 
-1. Connects a supported wallet.
-2. Selects the auction.
-3. Reviews the current clearing price and available information.
-4. Configures the bid amount and maximum price.
-5. Authorizes any required token allowances.
-6. Submits the bid as an on-chain transaction.
+Academy uses Reown for participant-authorized transactions and Nethereum for system-managed transactions, including automated bidding.
 
-Once confirmed, the bid becomes part of the auction's competitive clearing process.
+Both paths interact with the same CCA contracts.
 
-### Allowances & Authorization
+### Bid Competition
 
-ERC-20 bidding may require token allowance operations before a transaction can be submitted.
+As bids enter the auction, the available supply is allocated according to the protocol's clearing rules.
 
-Academy guides participants through the necessary approval process, including Permit2 authorization where applicable.
+When demand exceeds supply at the current clearing price, the clearing price can advance.
 
-Transactions initiated by connected participants require wallet authorization.
+Bids below the clearing price stop qualifying for additional allocation. Bids with higher price ceilings can remain eligible.
 
-### System Bidding
-
-Academy also supports system-managed transactions through Nethereum.
-
-This allows automated participants to submit bids using managed accounts.
-
-Automated bidding supports scenario evaluation, competitive testing, and configured system participation.
-
-The same underlying auction contract rules apply to transactions submitted by human participants and system actors.
-
----
-
-## Clearing Price & Bid Competition
-
-Continuous clearing creates competition between bids for the supply becoming available.
-
-When available supply is insufficient to satisfy all competing demand at current prices, the clearing price can advance.
-
-Bids with higher maximum prices can remain competitive as lower-priced bids cease to qualify for additional allocation.
-
-### Clearing Price Behavior
-
-The clearing price is nondecreasing: it can remain unchanged or increase, but it does not move backward.
-
-A participant's price ceiling therefore matters throughout the auction.
-
-An aggressive bid may remain competitive across a wider range of clearing prices, while a conservative bid may stop qualifying as competition increases.
-
-### Bids & Available Supply
-
-The current state of a bid is not necessarily its final result.
-
-As supply is released and competition changes, the auction recalculates which bids qualify for allocation.
-
-Within an active round, available supply can be exhausted by competing demand before the round ends.
-
-At that point, competition among qualifying bids becomes particularly significant.
-
-A bid's current allocation can change as higher-priced bids compete for the available supply.
-
-**A displayed fill is provisional until the applicable on-chain auction rules finalize it.**
-
-### Competitive Outcomes
-
-Academy presents bid and position information so participants can distinguish between bids that are competitive, partially allocated, or currently outbid.
-
-Final outcomes depend on clearing, auction completion, and settlement.
-
----
-
-## Checkpoints & Auction State
-
-Uniswap CCA uses checkpoints to represent cumulative auction execution state.
-
-Academy reads checkpoint information and uses it to reconstruct and display the auction's progress.
-
-Checkpoint-related data includes:
-
-- Blockchain position
-- Cumulative token distribution
-- Clearing price
-- Funds raised
-- Allocation-related calculations
-
-### Blockchain Monitoring
-
-Academy monitors blockchain state and maintains a shared application model for connected participants.
-
-This reduces redundant blockchain RPC activity and supports consistent presentation of auction information.
-
-The user interface can update its displayed timing and state between blockchain observations, but authoritative on-chain state advances with confirmed execution.
-
-### Application Calculations
-
-Academy uses Nethereum and its auction calculation services to interpret contract values, including fixed-point pricing and token-unit conversions.
-
-These calculations support:
-
-- Clearing price display
-- Token allocation estimates
-- Bid and position summaries
-- Scenario evaluation
-- Replay and result verification
-
-The application model does not replace the auction contract as the authoritative source.
-
----
-
-## Auction Lifecycle
-
-Academy tracks the auction through its operational states.
-
-| State | Description |
-|---|---|
-| Pending | Configured or deployed, awaiting its start |
-| Active | Auction is running and accepting eligible participation |
-| Ended | Auction period has completed |
-| Claimable | Eligible settlement or claim operations are available |
-| Settled | Final settlement has been completed |
-
-Actual operations depend on the auction contract state and supported lifecycle transitions.
-
-### Exiting & Reclaiming
-
-Participants can exit or reclaim funds when the contract's conditions permit.
-
-An exit can remove a bid from continued competition, subject to the rules and timing of the auction.
-
-### Claiming
-
-Once the auction reaches the appropriate state, participants can claim their resulting token allocations and any refundable quote-token balances according to the contract's settlement rules.
-
-Academy supports both participant-authorized and system-managed exit and claim transactions.
-
----
-
-## Positions
-
-Academy provides participants with a consolidated view of their auction positions.
-
-### Position Summary
-
-Position information includes:
-
-- Total committed funds
-- Average price information
-- Number of bids
-- Current allocations
-- Settlement balances
+Within an active round, additional bids can displace unrealized allocations before that round's fills are established.
 
 ### Bid Status
 
-During an active auction, bids may be presented as:
+Academy presents the following active bid conditions:
 
 | Status | Meaning |
 |---|---|
-| Clearing | Currently qualifying for allocation |
-| Partial | Receiving less than the requested allocation |
-| Outbid | Not currently qualifying for allocation |
+| **Clearing** | Currently qualifying for allocation |
+| **Partial** | Receiving less than the requested allocation |
+| **Outbid** | Not currently qualifying for allocation |
 
-After the auction closes, final bid outcomes can be presented as Cleared, Partial, or Outbid.
+After the auction closes, final outcomes are represented as **Cleared**, **Partial**, or **Outbid**.
 
-The interface distinguishes current competitive conditions from finalized outcomes.
-
-### Settlement Balances
-
-Settlement information separates the quote-token and base-token sides of the position.
-
-This allows participants to understand the funds committed, tokens allocated, and balances available for reclaim or claim.
+Bid status and allocation are related but distinct: a bid may already have realized fills from completed rounds even if its remaining demand becomes outbid.
 
 ---
 
-## Scenario Testing & Validation
+## Checkpoints & Monitoring
 
-Academy's auction mechanics can be evaluated in three execution environments.
+Uniswap CCA checkpoints represent cumulative execution state.
 
-### Test — Mock
+Academy reads contract state and checkpoints to monitor auction progress and reconstruct clearing calculations.
 
-Test executes the auction model off-chain.
+Relevant information includes:
 
-It supports configurable execution speed, automated bidders, and replay without requiring blockchain transactions.
+- Blockchain position and execution progress
+- Cumulative token distribution
+- Clearing price
+- Funds raised
+- Allocation calculations
 
-Developers can experiment with distribution schedules, flow rates, pricing, duration, and participant behavior.
+### Blockchain Synchronization
 
-### Sim — Testnet
+Academy centralizes blockchain monitoring through shared application services.
 
-Sim operates against real smart contracts on a testnet such as Ethereum Sepolia.
+This reduces redundant RPC traffic from connected browsers and provides a consistent application model.
 
-It exercises blockchain transactions, automated bidders, clearing, settlement, and claims using test assets.
+The interface can update its clock and presentation between blockchain observations, while authoritative contract state follows confirmed on-chain execution.
 
-Scenarios can be cloned from Test into Sim.
+### Numeric Calculations
 
-### Live — Mainnet
+Academy's .NET services use Nethereum and calculation utilities for contract data, token decimals, and fixed-point prices, including Q96 representations.
 
-Live operates against mainnet smart contracts with real assets and economic commitments.
+These calculations support monitoring and replay without replacing the smart contracts as the authoritative source.
 
-Scenarios can be cloned from Sim into Live, with the appropriate network and deployment configuration.
-
-Replay is supported across all three environments.
-
----
-
-## Replay & Verification
-
-Academy supports reconstructing auction activity and replaying its execution.
-
-Replay is designed for more than historical visualization.
-
-The application rebuilds auction calculations and compares reconstructed results with recorded execution outcomes.
-
-This helps developers evaluate:
-
-- Clearing price progression
-- Bid competition and allocation
-- Supply distribution
-- Checkpoint calculations
-- Final settlement results
-
-Replay provides a useful mechanism for diagnosing discrepancies between modeled and observed auction behavior.
-
-It is especially valuable when evaluating complicated scenarios involving numerous bids, automated participants, and changing distribution rates.
+For execution environments and automated validation, see [Bots & Scenarios](bots.md).
 
 ---
 
-## What Academy Adds
+## Auction Lifecycle & Settlement
 
-Uniswap CCA provides the on-chain auction protocol.
+An individual CCA progresses through the following application states.
 
-Academy extends the operating environment around that protocol.
-
-| Capability | Contribution |
+| State | Description |
 |---|---|
-| Auction Registration | Project identity, configuration, and scenario management |
-| Token Support | Creation of new tokens and integration of existing tokens |
-| Scenario Design | Configurable distribution, flow, rounds, and duration |
-| Test | Off-chain mock execution and evaluation |
-| Sim | Testnet validation using real smart contracts |
-| Live | Mainnet auction execution |
-| Automated Participants | Configurable system bidding and scenario evaluation |
-| Market Visualization | Live clearing, flow, bid, and position information |
-| Replay | Reconstruction, recalculation, and verification |
-| Project Discovery | Future community-driven token and project registry |
+| **Pending** | Awaiting the configured start |
+| **Active** | Auction execution and eligible bidding are underway |
+| **Ended** | The auction period has completed |
+| **Claimable** | Applicable claim operations are available |
+| **Settled** | Auction-level settlement has completed |
 
-Auction participation and monitoring are publicly accessible. Creation, scenario administration, automated testing, and replay currently remain restricted.
+These states describe the auction itself. Participant positions have separate settlement responsibilities.
 
-Broader access is planned after successful validation through the first two IRN campaign auctions.
+### Auction Settlement
 
-**Our objective is not to replace Uniswap's protocols, but to make them easier to configure, evaluate, operate, and participate in.**
+Auction settlement completes the auction's required accounting and transfers of funds and tokens according to the contract rules.
+
+Final clearing results establish the economic outcomes.
+
+### Position Settlement
+
+Individual participants may still have outstanding exits, refunds, or token claims after the auction has settled.
+
+**A settled auction does not imply that every participant has claimed their balances.**
+
+Academy supports both connected-wallet and system-managed exit and claim transactions, subject to the relevant contract conditions.
+
+### Exits & Claims
+
+Participants can exit eligible bids or reclaim balances when the contract permits.
+
+Claims transfer the resulting token allocations or refundable quote-token balances according to the auction's settlement rules.
+
+These operations are independent for each CCA stage. Participants do not need to wait for the entire Academy Auction campaign to conclude.
+
+---
+
+## Positions & Allocations
+
+Academy consolidates participant bids into position summaries.
+
+Position information includes:
+
+- Committed funds
+- Average purchase price
+- Bid count and status
+- Token allocations
+- Quote-token and base-token settlement balances
+
+### Allocation Accounting
+
+At any point during an active auction:
+
+`Total Filled Amount = Realized Amount + Unrealized Amount`
+
+Realized amounts originate from completed rounds. Unrealized amounts represent current-round allocations that may still change.
+
+At the end of the auction, the cumulative allocation is finalized under the contract's clearing rules.
+
+The distinction between realized allocations, auction settlement, and individual claims is important:
+
+- **Realized:** Allocation established through completed rounds.
+- **Settled:** Final auction accounting completed.
+- **Claimed:** The participant has executed the applicable claim operation.
+
+A participant may have realized allocations that are not yet claimable, or claimable balances that remain unclaimed.
+
+The planned position-model update will expose realized and unrealized values separately.
 
 ---
 
 ## Related Documentation
 
-- [Architecture](architecture.md)
-- [Technology Stack](technology.md)
-- [Bots & Scenarios](bots.md)
-- [Rewards & Qualification](rewards.md)
-- [Uniswap CCA](https://developers.uniswap.org/docs/liquidity/liquidity-launchpad/overview)
+- [Architecture](architecture.md) — Application architecture and creation
+- [Technology Stack](technology.md) — .NET, Nethereum, Reown, and supporting technologies
+- [Bots & Scenarios](bots.md) — Test, Sim, Live, automation, and replay
+- [Rewards & Qualification](rewards.md) — Discovery qualification, Confidence matching, and bonuses
+- [Uniswap CCA Documentation](https://developers.uniswap.org/docs/liquidity/liquidity-launchpad/overview)

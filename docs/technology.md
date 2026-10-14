@@ -2,247 +2,275 @@
 
 ## Overview
 
-TradeSphere Academy is built on **.NET 10, Blazor Server, Fluent UI Blazor 5, Nethereum, Reown, and Uniswap Continuous Clearing Auctions (CCA)**.
+TradeSphere Academy is built with **.NET 10, Blazor Server, Fluent UI Blazor, Nethereum, Reown, and Uniswap Continuous Clearing Auctions (CCA)**.
 
-The architecture combines a C# application stack with Ethereum smart contracts, connected wallets, automated execution, and real-time market visualization.
+The architecture combines C# application services, Ethereum smart contracts, connected wallets, automated execution, and real-time market visualization.
 
-Rather than developing a proprietary auction protocol, Academy builds on Uniswap CCA and extends its capabilities through configuration, scenario execution, automation, monitoring, and replay.
+Rather than building a proprietary auction protocol, Academy uses Uniswap CCA and develops the supporting infrastructure for auction configuration, execution, monitoring, simulation, and replay.
+
+Academy operates as a standalone application, with domain models and services designed for future integration into the broader TradeSphere platform.
+
+---
 
 ## Core Technologies
 
 | Technology | Role |
 |---|---|
-| **.NET 10 / C#** | Application services, domain models, auction calculations, and execution |
-| **Blazor Server** | Interactive application UI and server-managed state |
-| **Fluent UI Blazor 5** | Reusable interface components and design system |
-| **Nethereum** | Ethereum contract integration, RPC operations, and managed transactions |
-| **Reown** | Browser wallet connectivity and user-authorized transactions |
-| **Uniswap CCA** | On-chain auction execution and continuous price discovery |
+| **.NET 10 / C#** | Domain models, application services, auction calculations, and execution |
+| **Blazor Server** | Interactive UI and server-managed application state |
+| **Fluent UI Blazor** | Component framework and design system |
+| **Nethereum** | Ethereum integration, contract operations, and managed transactions |
+| **Reown** | Browser wallet connectivity and participant-authorized transactions |
+| **Uniswap CCA** | On-chain token distribution, clearing, and settlement |
 | **Ethereum** | Mainnet auction execution |
-| **Sepolia** | Testnet auction execution and validation |
+| **Sepolia** | Testnet contract execution and validation |
 | **Infura** | Blockchain RPC connectivity |
 | **Microsoft Azure** | Application hosting |
 | **GitHub** | Source management and technical documentation |
 
+---
+
 ## .NET 10 & C#
 
-C# is used throughout Academy's application architecture, including:
+C# is used across Academy's application architecture:
 
 - Domain models and application services
 - Auction registration and configuration
-- Scenario execution and automated participants
-- Fixed-point price and token calculations
-- Blockchain integration
+- Scenario execution and test bots
+- Fixed-point pricing and token calculations
+- Blockchain contract integration
 - Interactive UI components
 - Replay and result verification
 
-Using a shared language across these responsibilities allows business logic, execution models, and application components to integrate without requiring separate implementations in multiple programming languages.
-
 ### Strongly Typed Domain Models
 
-Academy's domain models represent auction configurations, registrations, scenarios, bids, positions, and execution states.
+Academy's models represent auctions, registrations, scenarios, bids, positions, and execution states.
 
-These models are shared throughout the application services and UI components.
+These models provide a consistent foundation for application services, scenario execution, and UI presentation.
 
-The approach is particularly useful for blockchain applications where token decimals, large integer values, fixed-point prices, and contract parameters require careful handling.
+Strong typing is particularly valuable when working with blockchain values involving large integers, token decimals, contract parameters, and Q96 fixed-point prices.
+
+---
 
 ## Blazor Server
 
-Academy uses Blazor Server for its interactive web application.
+Academy uses **Blazor Server** for its interactive application.
 
-The server maintains the application model and coordinates blockchain state monitoring, auction calculations, and UI updates.
+The server maintains the application model, coordinates blockchain monitoring, performs auction calculations, and distributes state updates to connected participants.
 
-### Why Blazor?
+### Centralized Blockchain Monitoring
 
-Several characteristics influenced the architecture:
+Rather than requiring every connected browser to independently poll the blockchain, Academy uses shared application services to observe contract state.
 
-**Component-based development**
+This approach:
 
-Auction interfaces contain many reusable elements, including metrics, bidding controls, positions, status indicators, and market visualizations.
+- Reduces redundant RPC requests
+- Maintains consistent auction information across connected sessions
+- Centralizes calculation and state reconstruction
+- Supports real-time presentation without continuous client-side blockchain polling
 
-Blazor supports building these as composable C# components.
+The interface can update its presentation between blockchain observations, while authoritative state remains determined by on-chain execution.
 
-**Integration with application services**
+### JavaScript & Wallet Integration
 
-UI components work directly with the application's strongly typed .NET models and services.
+Academy uses JavaScript with Reown for browser-specific wallet operations.
 
-**Centralized blockchain monitoring**
+Participant-authorized transactions are initiated through the connected wallet, while application monitoring and calculations remain server-managed.
 
-Academy can monitor blockchain state through shared application services rather than requiring every connected browser to independently query RPC providers.
+**The current application does not use a Blazor WebAssembly client for wallet integration.**
 
-**C# application development**
-
-The same language and development environment support application logic, blockchain integration, automated execution, and presentation.
-
-JavaScript remains available where browser-specific functionality is required.
+This separation provides the benefits of a centralized application model while retaining direct participant control over wallet authorization.
 
 ![TradeSphere Academy — Application Interface](../assets/academy-overview.png)
 
-*Academy's Blazor Server application, built with .NET 10 and Fluent UI Blazor 5.*
+*Academy's Blazor Server application using .NET 10 and Fluent UI Blazor.*
 
-## Fluent UI Blazor 5
+---
 
-Academy uses **Fluent UI Blazor 5** for its application component framework.
+## Fluent UI Blazor
 
-Fluent components support interactive controls, navigation, dialogs, data presentation, and forms.
+Academy uses **Fluent UI Blazor** as its component framework.
 
-Academy combines these components with its own layouts, auction-specific controls, and visualizations.
+Fluent components provide reusable controls for navigation, forms, dialogs, data presentation, and user interaction.
 
-The objective is to provide a consistent application interface while retaining the flexibility required for specialized market functionality.
+Academy combines these components with custom layouts and specialized market interfaces, including:
+
+- Auction metrics and status indicators
+- Bid controls and position summaries
+- Token flow visualization
+- Settlement information
+- Administrative and scenario interfaces
+
+The component framework provides a consistent foundation without limiting Academy's ability to implement specialized auction functionality.
 
 Official project: [Fluent UI Blazor](https://www.fluentui-blazor.net/)
+
+---
 
 ## Nethereum
 
 Nethereum provides Academy's .NET integration with Ethereum-compatible networks.
 
-It supports contract interaction, blockchain queries, transaction construction, and managed account execution.
+It supports blockchain queries, smart contract interaction, transaction construction, and managed account execution.
 
-### Read Operations
+### Blockchain Monitoring
 
-Academy uses Nethereum for blockchain monitoring and read-only contract operations, including auction configuration, state, bids, checkpoints, and settlement information.
+Academy uses Nethereum to retrieve and interpret contract information, including:
+
+- Auction configuration and lifecycle state
+- Bids and checkpoints
+- Clearing prices and funds raised
+- Token allocations and settlement balances
 
 ### Managed Transactions
 
-Nethereum also supports system-managed operations, including:
+Nethereum supports system-managed operations such as:
 
-- Auction and contract creation
+- Token and auction contract creation
 - Administrative transactions
-- Automated bidding
+- Test bot bidding
 - Bid exits
-- Token and funds claims
+- Token and refund claims
 
-These transactions are executed by the appropriate managed accounts.
+These operations use managed accounts rather than participant-connected browser wallets.
 
 ### Contract Models & Numeric Handling
 
-Ethereum contract values frequently use integer representations with explicit decimal scaling.
+Academy provides conversion and calculation utilities for token units, decimals, large integer values, and Uniswap CCA fixed-point price representations.
 
-Academy provides conversion and calculation utilities for token units and Uniswap CCA's fixed-point price representations, including Q96 values.
-
-These calculations are used for contract communication, auction monitoring, scenario execution, and replay.
+These calculations support contract interaction, monitoring, scenario evaluation, and replay.
 
 Official project: [Nethereum](https://nethereum.com/)
 
+---
+
 ## Reown & Wallet Connectivity
 
-Academy uses **Reown** for browser-based wallet connectivity and participant-authorized transactions.
+Academy uses **Reown** for browser wallet connectivity and participant-authorized transactions.
 
 Connected participants can:
 
 - Connect supported wallets
-- Select or switch networks
-- Authorize token allowances
-- Submit bids
+- Select or switch blockchain networks
+- Authorize ERC-20 allowances
+- Submit auction bids
 - Exit eligible bids
 - Claim settlement balances
 
-Wallet authorization remains under the participant's control.
+The participant authorizes transactions through their connected wallet.
 
-Reown complements Nethereum rather than replacing it.
+### Two Transaction Paths
 
-The application selects the appropriate transaction path based on whether an operation is user-authorized or system-managed.
+| Transaction Path | Technology | Responsibility |
+|---|---|---|
+| **Participant-authorized** | Reown / JavaScript | Wallet connection, signing, and user-approved transactions |
+| **System-managed** | Nethereum / C# | Contract administration, automation, and managed-account transactions |
+
+The distinction is based on **who authorizes the operation**, not which smart contract is being accessed.
+
+Both paths interact with the same underlying blockchain contracts.
 
 Official project: [Reown](https://reown.com/)
 
+---
+
 ## Uniswap Continuous Clearing Auctions
 
-Academy uses Uniswap CCA smart contracts for on-chain token distribution and price discovery.
+Academy uses **Uniswap CCA** for on-chain token distribution and price discovery.
 
-The protocol provides the underlying auction mechanics, including competitive bidding, clearing, and settlement.
+Uniswap's contracts provide bidding, clearing, allocation, and settlement mechanics.
 
-Academy contributes the surrounding application infrastructure:
+Academy supplies the surrounding application infrastructure for configuring auctions, evaluating scenarios, monitoring execution, managing positions, and reconstructing results.
 
-- Auction registration and configuration
-- Contract deployment and management
-- Scenario design and evaluation
-- Test, Sim, and Live execution
-- Automated participants
-- Auction monitoring and visualization
-- Bid and position management
-- Replay and verification
+**The CCA contracts remain authoritative for auction execution.**
 
-Uniswap CCA determines authoritative on-chain auction behavior. Academy provides tools to configure, operate, and understand that behavior.
+Academy's calculations support visualization, verification, and analysis without replacing the protocol's on-chain rules.
+
+For the auction mechanics and staged campaign model, see [Auction Mechanics](auction.md).
 
 Official documentation: [Uniswap CCA](https://developers.uniswap.org/docs/liquidity/liquidity-launchpad/overview)
 
-## Blockchain Networks
+---
 
-Academy supports distinct execution environments.
+## Blockchain Execution Environments
+
+Academy supports three execution environments.
 
 | Environment | Network | Purpose |
 |---|---|---|
-| **Test** | Off-chain | Mock execution, accelerated scenarios, and evaluation |
+| **Test** | Off-chain | Mock execution and accelerated scenario evaluation |
 | **Sim** | Sepolia / testnet | Actual smart contract execution using test assets |
-| **Live** | Mainnet | Real auction transactions and market participation |
+| **Live** | Mainnet | Real auction transactions and economic commitments |
 
-Scenarios can be cloned from Test to Sim and from Sim to Live.
+Scenarios can be cloned from Test to Sim and from Sim to Live, with network-specific addresses, assets, and contract configurations applied as appropriate.
 
-Network-specific assets, addresses, and contract configuration are applied when moving between environments.
+### Automation & Replay
 
-## Execution & Automation
+Academy's scenario executor supports controlled test bots with configurable bidding strategies and behavioral models.
 
-Academy's execution capabilities support configurable scenarios, automated participants, and replay.
+These bots are part of Academy's testing infrastructure, not independent external Agents.
 
-### Scenario Execution
+Replay reconstructs execution and compares application calculations with recorded auction results.
 
-Scenarios define auction allocation, distribution, flow, rounds or steps, duration, pricing, and participant behavior.
+Scenario administration, test bot controls, and replay are implemented but currently restricted to administrative use.
 
-Test scenarios can execute at configurable speeds without blockchain transactions.
+For behavioral models and execution details, see [Test Bots & Scenarios](bots.md).
 
-Sim and Live scenarios coordinate execution with actual blockchain networks.
-
-### Automated Participants
-
-Automated bidders can execute under configured behavioral strategies.
-
-System bidding uses managed accounts and Nethereum for blockchain transactions when operating on-chain.
-
-Bots provide a practical method for evaluating auction behavior, competition, and calculation accuracy.
-
-### Replay
-
-Auction execution can be reconstructed and replayed across Test, Sim, and Live environments.
-
-Replay recalculates auction results and supports comparison with recorded execution.
-
-These capabilities are currently restricted to administrative use.
+---
 
 ## Hosting & Operations
 
-Academy is hosted using Microsoft Azure infrastructure.
+Academy is hosted on **Microsoft Azure**.
 
-The application coordinates server-managed UI sessions, backend services, and blockchain RPC connectivity.
+The application coordinates Blazor Server sessions, backend services, blockchain monitoring, and RPC connectivity.
 
-Infura provides Ethereum network access for contract queries and transaction operations.
+**Infura** provides Ethereum network access for contract queries and transaction operations.
 
-The architecture centralizes blockchain observation where practical to reduce redundant network requests from connected participants.
+Centralized blockchain observation helps reduce unnecessary RPC traffic while supporting multiple connected participants.
+
+GitHub is used for source control, collaboration, and technical documentation.
+
+---
 
 ## Public Availability
 
-The public Academy application currently supports auction discovery, wallet connection, bidding, monitoring, positions, and appropriate settlement operations.
+The public Academy application supports auction discovery, connected-wallet participation, bidding, monitoring, positions, and applicable settlement operations.
 
-Auction creation, scenario administration, automated execution, and replay have been implemented but are not yet available through the public interface.
+Additional capabilities are already implemented but currently restricted:
 
-Broader access is planned following successful validation of the initial IRN Discovery and Confidence auctions.
+- Auction and token creation
+- Scenario configuration and administration
+- Automated test bot execution
+- Accelerated mock testing and on-chain simulation
+- Replay and verification
 
-## Development Philosophy
+Broader access is planned following validation of the initial IRN Discovery and Confidence auctions.
 
-Academy's technology choices emphasize:
+### Relationship to TradeSphere
 
-**Established infrastructure.** Use proven blockchain protocols and development frameworks where they meet the requirements.
+Academy currently operates independently of the main TradeSphere application.
 
-**Strong domain modeling.** Keep economic configuration, execution behavior, and application presentation clearly separated.
+However, its architecture builds on concepts already present within TradeSphere, including scenarios, activities, and automated participants.
 
-**Reusable components.** Build specialized market interfaces from composable application elements.
+TradeSphere already executes Ideas, Missions, and Games through its scenario infrastructure.
 
-**Flexible authorization.** Support direct wallet participation and managed system actors.
+Academy's specialized auction functionality and enhanced behavioral models are designed to integrate with that broader activity environment.
 
-**Scenario-driven validation.** Evaluate auction behavior before committing to mainnet execution.
+The applications remain separate today; deeper integration is part of the planned development direction.
 
-**Observable execution.** Make auction mechanics understandable through monitoring, visualization, and replay.
+---
 
-**Interoperability.** Build complementary infrastructure around established open protocols rather than unnecessarily replacing them.
+## Engineering Principles
+
+Academy's technology choices reflect several architectural priorities:
+
+- **Established protocols:** Build on existing blockchain infrastructure rather than unnecessarily replacing it.
+- **Strong domain modeling:** Separate economic configuration, execution, and presentation.
+- **Centralized observation:** Share blockchain monitoring and calculations across connected participants.
+- **Direct wallet authorization:** Keep participant transactions under their control.
+- **Scenario-driven validation:** Evaluate configurations before committing to mainnet execution.
+- **Observable execution:** Support monitoring, reconstruction, and replay.
+- **Reusable architecture:** Develop capabilities that can extend into the broader TradeSphere platform.
 
 ---
 
@@ -250,7 +278,7 @@ Academy's technology choices emphasize:
 
 - [Architecture](architecture.md)
 - [Auction Mechanics](auction.md)
-- [Bots & Scenarios](bots.md)
+- [Test Bots & Scenarios](bots.md)
 - [Rewards & Qualification](rewards.md)
 - [Fluent UI Blazor](https://www.fluentui-blazor.net/)
 - [Nethereum](https://nethereum.com/)

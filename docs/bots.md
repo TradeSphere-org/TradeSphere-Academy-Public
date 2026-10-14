@@ -1,248 +1,293 @@
-# TradeSphere Academy — Bots & Scenarios
+# TradeSphere Academy — Test Bots & Scenarios
 
 ## Overview
 
-TradeSphere Academy supports automated auction participants through its scenario execution framework.
+TradeSphere Academy includes an automated scenario execution framework for testing auction configurations, bidding behavior, token distribution, and clearing calculations.
 
-Bots provide a way to evaluate auction behavior under controlled and competitive conditions, helping projects understand how distribution strategies, token flow, bid competition, and clearing prices interact.
+**Academy test bots are controlled participants used to validate auction mechanics. They are not independent external Agents.**
 
-Unlike static tests with predetermined inputs, automated participants introduce different bidding behaviors and timing into auction execution.
+Test bots operate under configurable conditions, allowing developers to observe how different bidding strategies, participant populations, and distribution schedules affect auction execution.
 
-Academy's bot and scenario capabilities support three execution environments:
+The framework supports three execution environments:
 
-- **Test:** Mock, off-chain execution at configurable speeds.
-- **Sim:** On-chain execution using test networks such as Ethereum Sepolia.
-- **Live:** Mainnet execution using actual blockchain transactions.
+| Environment | Execution | Purpose |
+|---|---|---|
+| **Test** | Off-chain mock | Rapid simulation and scenario evaluation |
+| **Sim** | On-chain testnet | Contract and transaction validation |
+| **Live** | Mainnet | Restricted, authorized validation using real assets |
 
-Bots, scenario configuration, and execution controls are implemented but currently restricted to administrative use.
+Bot configuration, scenario execution, and administration are currently restricted.
 
-## Why Bots?
+### Test Bots vs. External Agents
 
-An auction's behavior depends not only on its configuration but also on how participants respond to changing market conditions.
+TradeSphere distinguishes between internally controlled test bots and independent market participants.
 
-A distribution schedule that performs well with limited demand may behave differently when bidders compete aggressively for supply.
+| | Academy Test Bots | External Agents |
+|---|---|---|
+| **Purpose** | Validate auction behavior | Participate in markets and activities |
+| **Control** | Academy scenario executor | Independent operators or execution systems |
+| **Behavior** | Configured strategies and parameters | Independently determined |
+| **Identity** | Internal player identifiers | Wallet addresses; future Aura integration |
+| **Execution** | Controlled Test, Sim, or authorized Live scenarios | Public participation under applicable rules |
 
-Automated participants help evaluate those differences.
+Academy's test bots are not presented as independent market demand.
 
-Bots can be used to investigate:
+External Agents are a separate category of participant and are not managed through Academy's testing framework.
 
-- Competition for limited token supply
+---
+
+## Why Test Bots?
+
+Auction behavior depends on both the distribution configuration and the actions of participants.
+
+A scenario with limited demand behaves differently from one with aggressive bidding, changing price ceilings, or concentrated spending commitments.
+
+Test bots introduce controlled variation, allowing Academy to evaluate:
+
+- Competition for available token supply
 - Clearing price progression
 - Bid displacement and partial allocations
-- Changes in demand across rounds or steps
+- Changes in demand across rounds
 - Distribution and flow-rate behavior
-- Auction execution under different participant populations
-- Calculation and checkpoint consistency
-- Reconstruction and replay accuracy
+- Different participant populations and strategies
+- Checkpoint consistency and calculation accuracy
+- Execution reconstruction and replay
 
 **The objective is to evaluate auction mechanics under varied conditions, not to predict actual market demand.**
 
+---
+
 ## Scenario Configuration
 
-An auction's execution scenario defines the economic environment in which participants operate.
+An auction scenario defines the conditions under which an auction executes.
 
-A scenario includes the auction's distribution strategy and parameters governing automated participation.
+It combines the distribution schedule with parameters controlling simulated participants and their bidding behavior.
 
 ![TradeSphere Academy — Automated Auction Scenario](../assets/academy-auction.png)
 
-*Automated participants competing in a configurable mock auction scenario.*
+*Academy auction execution with configurable rounds, token flow, bids, and automated participants.*
 
-### Auction Parameters
+### Configuration Parameters
 
 | Parameter | Purpose |
 |---|---|
-| Allocation | Total token supply committed to the auction |
-| Distribution | How supply is divided across the auction |
-| Flow | Rate at which tokens become available |
-| Rounds / Steps | Intervals with defined distribution characteristics |
-| Duration | Total auction operating period |
-| Floor Price | Minimum clearing price |
-| Bidder Count | Number of automated participants |
-| Bid Timing | When automated bids may be submitted |
-| Bidder Behavior | Strategy used by each automated participant |
+| **Allocation** | Total token supply assigned to the auction |
+| **Distribution** | Supply allocation across rounds |
+| **Flow** | Rate at which tokens become available |
+| **Rounds / Steps** | Intervals with defined distribution characteristics |
+| **Duration** | Total auction operating period |
+| **Floor Price** | Minimum clearing price |
+| **Bidder Count** | Number of automated participants |
+| **Bid Timing** | When bots may submit bids |
+| **Bidder Behavior** | Strategies and behavioral profiles |
 
-Together, these parameters define the conditions under which a scenario is evaluated.
+Configurations can be evaluated through Test and then validated through Sim before authorized Live execution.
 
 ### Scenario Types
 
-Academy supports configuring different competitive conditions, including:
+Academy supports several starting configurations:
 
-| Scenario | Behavior |
+| Scenario | Description |
 |---|---|
-| UnderSubscribed | Limited demand relative to available supply |
-| Balanced | Demand and supply are more closely aligned |
-| Competitive | Multiple bidders compete for available allocations |
-| LateSurge | Bidding activity increases toward the end |
-| WhalePressure | Larger spending commitments influence competition |
-| PriceLadder | Bids distributed across different price ceilings |
-| Custom | Project-defined execution characteristics |
+| **UnderSubscribed** | Demand remains below available supply |
+| **Balanced** | Demand and supply are more closely aligned |
+| **Competitive** | Multiple participants compete for allocations |
+| **LateSurge** | Increased bidding activity toward the end |
+| **WhalePressure** | Larger spending commitments influence clearing |
+| **PriceLadder** | Participants use different price ceilings |
+| **Custom** | Project-defined scenario parameters |
 
-These scenarios provide starting points for exploring auction behavior.
+These scenarios provide repeatable starting conditions for evaluating different auction configurations.
 
-Projects can modify configurations and evaluate alternatives before advancing to on-chain execution.
+---
 
-## Automated Participants
+## Test Bot Participants
 
-Academy models automated auction participants as players with configurable bidding behavior.
+Academy models test bots as players with an identity, auction context, and configurable bidding behavior.
 
-A player combines participant identity, auction context, and execution strategy.
+Each bot operates within the scenario's economic and execution constraints.
 
-### Behavioral Strategies
+### Behavioral Modeling
 
-The scenario framework supports several behavioral profiles:
+The framework supports five bidding strategies:
 
-| Behavior | General Strategy |
+| Strategy | General Behavior |
 |---|---|
-| Conservative | Lower price tolerance and more cautious bidding |
-| Regular | Moderate participation within configured limits |
-| Aggressive | Greater willingness to compete at higher prices |
-| Reactive | Responds to changing auction conditions |
+| **Conservative** | Lower price tolerance and cautious spending |
+| **Regular** | Moderate participation within configured limits |
+| **Aggressive** | Greater willingness to bid at higher prices |
+| **Reactive** | Responds to changing auction conditions |
+| **Whale** | Models larger spending commitments and concentrated demand |
 
-Behavior influences how an automated participant approaches bid submission and price competition.
+Academy also incorporates personality-inspired behavioral modeling based on the sixteen Myers-Briggs types.
 
-Individual bots can be assigned different profiles to create varied competitive conditions within the same scenario.
+These profiles are organized into four temperament groups:
+
+| Temperament | Personality Types |
+|---|---|
+| **Strategist (NT)** | INTJ, INTP, ENTJ, ENTP |
+| **Guardian (SJ)** | ISTJ, ISFJ, ESTJ, ESFJ |
+| **Opportunist (SP)** | ISTP, ISFP, ESTP, ESFP |
+| **Idealist (NF)** | INFJ, INFP, ENFJ, ENFP |
+
+Each temperament defines numerical behavioral parameters:
+
+- **Participation Bias:** Influences the tendency to participate.
+- **Price Sensitivity:** Influences responses to price conditions.
+- **Spend Sensitivity:** Influences spending behavior.
+
+These models introduce configurable behavioral variation rather than relying entirely on identical scripted bidders.
+
+Personality types are used as simulation constructs, not psychological assessments or predictions of actual investor behavior.
+
+**The behavioral framework is intentionally extensible**, allowing more sophisticated decision-making strategies to be introduced without changing the underlying scenario execution model.
 
 ### Participant Identification
 
-Academy distinguishes human participation from automated participants within its scenario model.
+Test bots receive internal player identifiers and descriptive labels.
 
-Automated players can be assigned identifiers and descriptive behavioral labels.
+These identifiers allow Academy to associate bids with the originating automated participant, reconstruct activity, and evaluate behavioral differences.
 
-Participant identification supports reconstructing auction activity, associating bids with automated players, and analyzing how different strategies perform.
-
-The immediate objective is reliable identification and execution within Academy, rather than full integration with TradeSphere's future Aura identity and reputation services.
+The current identification model is independent of TradeSphere's planned Aura identity and reputation integration.
 
 ### System-Managed Transactions
 
-For on-chain execution, bots can submit transactions through Nethereum using managed accounts.
+Academy uses Nethereum to execute transactions through managed accounts.
 
-Supported operations include bidding and, where applicable, exiting and claiming.
+Depending on the scenario and auction state, supported operations include:
 
-Automated transactions remain subject to the same smart contract rules as transactions submitted by connected users.
+- Bid submission
+- Bid exits
+- Token and refund claims
 
-The transaction execution path differs, but the auction protocol does not distinguish economic rights according to whether a participant is human or automated.
+Transactions submitted by test bots are subject to the same underlying smart contract rules as other participants.
+
+Their purpose, however, remains testing and validation rather than independent market participation.
+
+---
 
 ## Bid Timing & Competition
 
-The timing of automated bids matters.
+Submitting every automated bid simultaneously produces a different competitive environment from distributing bids over time.
 
-If every participant submits at the same instant, the resulting auction behavior may be less representative of how independent participants interact with changing conditions.
-
-Academy supports distributing bot activity over scenario intervals.
+Academy supports configuring bot participation around auction rounds and execution intervals.
 
 ### Round-Based Participation
 
-Bots can operate according to the current round or step.
+Test bots can be constrained by round-specific participation rules.
 
-A scenario may constrain how frequently participants submit bids during an interval.
+For example, a scenario may allow each bot to submit one bid per round.
 
-For example, a configured population could allow each bot one bid per round, with submissions distributed across that round.
-
-This produces a progression of bidding activity rather than a single synchronized burst.
+This limits bidding frequency while still allowing competition to develop as additional bids enter the auction.
 
 ### Randomized Submission Windows
 
-Bot activity can be distributed across configurable time windows.
+Bots can submit bids at randomized times within configured intervals.
 
-Randomized timing helps create variation in the sequence of bids and the competitive conditions participants encounter.
+This produces variation in:
 
-This is especially useful when observing the effect of additional bids on clearing prices and provisional allocations.
+- Bid arrival order
+- Available supply at submission
+- Current clearing price
+- Competing allocations
+- Bid displacement
+
+Randomization helps exercise auction behavior under different transaction sequences.
 
 ### Bidding Constraints
 
-Automated participants operate within configured parameters such as:
+Automated participants operate within configurable limits, including available budget, maximum acceptable price, bid frequency, behavioral strategy, and auction state.
 
-- Available spending budget
-- Maximum accepted price
-- Bid frequency
-- Current auction state
-- Behavioral strategy
+These parameters support controlled experiments and comparisons across scenario executions.
 
-These limits allow scenarios to be repeated and compared under controlled assumptions.
+---
 
 ## Execution Environments
 
-The same general scenario framework can be evaluated under different execution conditions.
+Academy's scenario framework supports progressively more realistic execution conditions.
 
 ### Test — Mock Execution
 
-Test runs the auction model off-chain without deploying or transacting with smart contracts.
+Test runs the auction model off-chain without deploying contracts or submitting blockchain transactions.
 
-Scenarios can execute at configurable speeds, allowing lengthy auction schedules to be evaluated rapidly.
-
-Bots submit simulated bids and interact with the virtual auction model.
+Scenarios can execute at configurable speeds, allowing developers to evaluate lengthy auctions quickly.
 
 Test supports:
 
-- Rapid evaluation of auction configurations
-- Large numbers of simulated participants
-- Different bidding strategies
-- Controlled and randomized bid timing
-- Clearing and allocation calculations
-- Replay and result comparison
+- Automated participant populations
+- Configurable bidding strategies
+- Randomized submission timing
+- Auction flow and clearing calculations
+- Bid competition and allocation analysis
+- Replay and verification
 
-A scenario can be cloned from Test into Sim for on-chain validation.
+A scenario can be cloned from Test into Sim for blockchain validation.
 
 ### Sim — Testnet Execution
 
-Sim uses actual smart contracts and blockchain transactions on a test network such as Sepolia.
+Sim uses actual smart contracts and blockchain transactions on test networks such as Ethereum Sepolia.
 
-Bots submit real testnet transactions using test accounts and test assets.
+Test bots submit real testnet transactions using test accounts and test assets.
 
-This environment provides validation of transaction execution and contract behavior in addition to the auction's economic calculations.
+This validates transaction execution, contract interaction, clearing, settlement, and claims alongside Academy's application calculations.
 
-**Gridiron's Discovery auction operates in Sim**, combining real on-chain execution with test assets.
+**Gridiron's Discovery auction uses the Sim environment**, allowing qualification through actual on-chain participation without requiring real purchase funds.
 
-Sim supports automated bidding, blockchain monitoring, replay, and result verification.
-
-Validated scenarios can be cloned into Live, with appropriate network and asset configuration.
+Scenarios can be cloned from Sim into Live using the appropriate network and asset configuration.
 
 ### Live — Mainnet Execution
 
-Live operates against mainnet smart contracts.
+Live operates against mainnet smart contracts using real assets.
 
-Automated participation can be executed using managed accounts, while human participants authorize transactions through connected wallets.
+Academy's test bot infrastructure can support restricted, explicitly authorized mainnet validation when necessary.
 
-Unlike Test or Sim, Live operations involve real assets and economic commitments.
+**Test bots are not intended to impersonate organic market demand or operate as undisclosed participants in public auctions.**
 
-Replay and verification remain available to analyze completed execution.
+Independent participants, including external Agents, are separate from Academy's managed test infrastructure.
 
-Automated participation on Live is controlled through Academy's restricted system functionality.
+Replay and verification remain available for Live auction execution.
+
+---
 
 ## Replay & Reconstruction
 
-Academy's replay system supports reconstructing auction execution and re-evaluating its calculations.
+Academy supports reconstructing auction activity and re-evaluating execution results.
 
-This is particularly useful for scenarios involving automated participants, where many bids can affect clearing prices and allocations over time.
+This is especially valuable for automated scenarios, where numerous bids can affect clearing prices and allocations.
 
-Replay helps analyze:
+Replay supports analysis of:
 
-- Bid submission sequence
+- Bid submission sequences
 - Competition across rounds
-- Changes in clearing price
-- Provisional and final allocations
-- Checkpoint calculations
-- Differences between modeled and recorded execution
+- Clearing price progression
+- Realized and unrealized allocations
+- Token distribution and checkpoints
+- Settlement calculations
+- Differences between reconstructed and recorded execution
 
 ### Virtual & On-Chain Comparison
 
-Academy maintains auction calculation capabilities that can be evaluated against observed blockchain execution.
+Academy's calculation services can reconstruct auction execution and compare results against observed contract state.
 
-This supports identifying differences between virtual calculations and actual contract results.
-
-Replay is therefore both an analysis tool and an important part of validating the auction execution model.
+This helps identify discrepancies involving pricing, allocations, checkpoints, or settlement.
 
 ### Reproducibility
 
-Scenario parameters, participant behaviors, and recorded auction activity provide a basis for reproducing execution conditions and investigating unexpected results.
+Scenario configuration, behavioral assignments, and recorded auction activity provide a basis for reproducing execution conditions.
 
-Where bid timing or behavior includes random variation, recorded execution data is especially valuable for reconstructing what occurred.
+Where randomized timing affects participation, recorded transaction sequences support accurate reconstruction.
 
-## Example — Competitive Auction Scenario
+Replay is therefore both an analytical tool and a means of validating the auction execution model.
 
-Consider a five-round auction configured with the following supply distribution:
+---
 
-| Round | Share of Supply | Relative Flow |
+## TheQuickening — Example Scenario
+
+**TheQuickening** is an Academy auction scenario used for Gridiron execution and validation.
+
+It distributes token supply across five rounds, with changing flow rates and automated bidding activity.
+
+| Round | Supply Allocation | Relative Flow |
 |---|---:|---|
 | 1 | 15% | Slowest |
 | 2 | 20% | Slow |
@@ -250,32 +295,50 @@ Consider a five-round auction configured with the following supply distribution:
 | 4 | 25% | Fast |
 | 5 | 15% | Fastest |
 
-*Illustrative scenario inspired by Academy's Gridiron execution configurations. Actual flow depends on both allocated supply and round duration.*
+The flow-rate progression is intentional. Round durations differ, so flow is determined by **both the token allocation and the duration of each round**.
 
-The auction contains multiple automated participants assigned different behavioral strategies.
+A round with a smaller allocation can have a higher flow rate if its duration is sufficiently shorter.
 
-Each participant may submit bids during the configured rounds according to its budget, price ceiling, and timing constraints.
+### Automated Participation
 
-As new bids enter the auction:
+The scenario supports a population of test bots assigned different behavioral profiles.
 
-- Available supply is consumed according to the clearing mechanism.
-- Competitive bids can change the current clearing price.
-- Lower-priced bids may lose allocation.
-- Different distribution rates affect the timing and intensity of competition.
+Bots can participate according to configured constraints, including bidding frequency, spending budgets, and randomized timing within rounds.
 
-The scenario can first be evaluated through mock execution, then reproduced on testnet, and eventually deployed on mainnet if appropriate.
+As the auction progresses:
+
+- Tokens become available at the configured flow rate.
+- Bots submit bids under their behavioral and economic constraints.
+- Clearing prices respond to qualifying demand.
+- Competitive bids can displace current unrealized allocations.
+- Completed rounds establish realized fills.
+- Replay reconstructs and verifies the resulting execution.
+
+TheQuickening can be evaluated through off-chain Test execution and on-chain Sim validation.
+
+Its value is not simply the number of automated participants, but the ability to observe how varied bidding behavior interacts with a changing distribution schedule.
+
+---
 
 ## Current Availability & Future Direction
 
-Academy's automated bidding, scenario execution, and replay capabilities are implemented but currently restricted to system administration and testing.
+Academy's test bots, behavioral models, scenario execution, and replay capabilities are implemented and currently restricted to administrative use.
 
-Broader access is planned following successful completion of the first two auctions in the IRN campaign, *The Reckoning*.
+The broader TradeSphere platform already supports scenarios and automated participants. Its bots are actively executing **Ideas, Missions, and Games** through the existing activity framework.
 
-Future TradeSphere integration will extend the participant model through organizations, actors, activities, directives, actions, and reputation.
+Academy builds on this foundation with a more sophisticated behavioral model, incorporating bidding strategies, Myers-Briggs personality profiles, temperaments, and configurable behavioral biases.
 
-Those broader capabilities are not required for Academy's existing auction bots and scenario execution system.
+These enhancements are designed to be reusable across TradeSphere's existing scenario infrastructure.
 
-**Academy already supports automated participation as part of its auction engineering. The broader TradeSphere model will extend what that participation can represent.**
+Future integration can extend behavioral modeling beyond auctions into other activities, allowing automated participants to exhibit more varied strategies, decisions, and reactions.
+
+The distinction remains important:
+
+- **Test Bots:** Controlled participants used for simulation, testing, and validation.
+- **TradeSphere Bots:** Existing automated participants operating within TradeSphere activities and scenarios.
+- **External Agents:** Independently operated participants interacting with TradeSphere through supported interfaces.
+
+**Academy advances the behavioral model. TradeSphere provides the broader activity environment in which that model can operate.**
 
 ---
 
