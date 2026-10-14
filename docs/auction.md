@@ -129,7 +129,7 @@ A round has a defined duration and allocation of the auction's supply. Its flow 
 
 ### Flow Visualization
 
-![TradeSphere Academy — Auction Execution](../assets/academy-auction.png)
+![TradeSphere Academy — Live Auction Execution](../assets/academy-auction.gif)
 
 *Academy Test auction showing rounds, token flow, clearing, bids, and participant controls.*
 

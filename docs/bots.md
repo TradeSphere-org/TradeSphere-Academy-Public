@@ -63,7 +63,7 @@ An auction scenario defines the conditions under which an auction executes.
 
 It combines the distribution schedule with parameters controlling simulated participants and their bidding behavior.
 
-![TradeSphere Academy — Automated Auction Scenario](../assets/academy-auction.png)
+![TradeSphere Academy — Automated Auction Scenario](../assets/academy-auction.gif)
 
 *Academy auction execution with configurable rounds, token flow, bids, and automated participants.*
 
