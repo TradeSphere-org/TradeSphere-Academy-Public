@@ -70,11 +70,11 @@ Pool creation depends on the availability of designated assets and the completio
 
 | Stage | Network | Purpose | Liquidity |
 |---|---|---|---|
-| **01 — Discovery** | Sepolia | Participation and qualification | — |
-| **02 — Confidence** | Mainnet | Initial funding and price discovery | Launch initial pool |
-| **03 — Momentum** | Mainnet | Continue controlled distribution | Add liquidity |
-| **04 — Expansion** | Mainnet | Broaden participation and capital formation | Add liquidity |
-| **05 — Peak** | Mainnet | Complete the planned campaign allocation | Add liquidity |
+| **01 — Discovery** | Ethereum Sepolia | Participation and qualification | — |
+| **02 — Confidence** | Arbitrum One | Initial funding and price discovery | Launch initial pool |
+| **03 — Momentum** | Arbitrum One | Continue controlled distribution | Add liquidity |
+| **04 — Expansion** | Arbitrum One | Broaden participation and capital formation | Add liquidity |
+| **05 — Peak** | Arbitrum One | Complete the planned campaign allocation | Add liquidity |
 
 Each stage advances only if the preceding CCA graduates. Subsequent stages can contribute additional assets to the existing liquidity pool and project treasury.
 

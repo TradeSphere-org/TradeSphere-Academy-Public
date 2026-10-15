@@ -48,7 +48,7 @@ Academy is being validated through TradeSphere's own projects before expanding a
 The inaugural campaign, **Gridiron: The Reckoning**, establishes two initial milestones:
 
 - **01 — Discovery:** On-chain qualification and validation using Ethereum Sepolia and test assets.
-- **02 — Confidence:** The first mainnet auction, contingent on sufficient participation and successful Discovery validation.
+- **02 — Confidence:** The first Arbitrum One mainnet auction, contingent on sufficient participation and successful Discovery validation.
 
 Successful completion of these stages is the intended milestone for expanding access to Academy's creation and scenario capabilities.
 
@@ -272,7 +272,7 @@ The same general execution model operates across three environments.
 |---|---|---|
 | **Test** | Mock, off-chain | Accelerated execution and scenario evaluation |
 | **Sim** | On-chain testnet | Contract validation using test assets |
-| **Live** | On-chain mainnet | Real auction execution and economic commitments |
+| **Live** | Arbitrum One mainnet | Real auction execution and economic commitments |
 
 Scenarios can be cloned from **Test → Sim → Live**, with network-specific assets, contract addresses, and deployment configuration applied as appropriate.
 

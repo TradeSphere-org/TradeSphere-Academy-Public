@@ -85,17 +85,17 @@ We're putting Academy to work on our own projects first.
 
 | Stage | Network | Purpose | Liquidity |
 |---|---|---|---|
-| **01 — Discovery** | Sepolia | Participation and qualification | — |
-| **02 — Confidence** | Mainnet | Initial funding and price discovery | Launch initial pool |
-| **03 — Momentum** | Mainnet | Continue controlled distribution | Add liquidity |
-| **04 — Expansion** | Mainnet | Broaden participation and capital formation | Add liquidity |
-| **05 — Peak** | Mainnet | Complete the planned campaign allocation | Add liquidity |
+| **01 — Discovery** | Ethereum Sepolia | Participation and qualification | — |
+| **02 — Confidence** | Arbitrum One | Initial funding and price discovery | Launch initial pool |
+| **03 — Momentum** | Arbitrum One | Continue controlled distribution | Add liquidity |
+| **04 — Expansion** | Arbitrum One | Broaden participation and capital formation | Add liquidity |
+| **05 — Peak** | Arbitrum One | Complete the planned campaign allocation | Add liquidity |
 
 Each stage advances only if its predecessor graduates. Subsequent stages can contribute additional assets to the existing liquidity pool and project treasury.
 
 ### Discovery — Learn, Participate, Qualify
 
-Discovery operates on Ethereum Sepolia using test assets and actual blockchain transactions.
+Discovery operates on **Ethereum Sepolia** using test assets and actual blockchain transactions.
 
 Participants can experience the auction, place bids, and establish eligibility for matching rewards during Confidence without committing real purchase funds.
 
@@ -103,7 +103,7 @@ Participants can experience the auction, place bids, and establish eligibility f
 
 ### Confidence — Real Participation, Real Incentives
 
-Confidence is the planned first mainnet auction, conditional on Discovery meeting its progression requirements.
+Confidence is the planned first **Arbitrum One mainnet auction**, conditional on Discovery meeting its progression requirements.
 
 Participants can purchase IRN through Uniswap CCA, with two additional incentives:
 
@@ -149,7 +149,7 @@ Academy makes that execution visible through:
 
 ## Built with Modern .NET & Ethereum Technology
 
-Academy combines a predominantly C# application stack with Ethereum smart contracts and participant-controlled wallets.
+Academy combines a predominantly C# application stack with Ethereum-compatible smart contracts on Sepolia and Arbitrum One, and participant-controlled wallets.
 
 | Technology | Role |
 |---|---|
@@ -158,7 +158,8 @@ Academy combines a predominantly C# application stack with Ethereum smart contra
 | **Nethereum** | Blockchain integration, contract operations, and managed transactions |
 | **Reown** | Connected-wallet authorization and transactions |
 | **Uniswap CCA** | On-chain auction execution and price discovery |
-| **Ethereum / Sepolia** | Mainnet and testnet execution |
+| **Ethereum Sepolia** | Discovery auction and on-chain testnet validation |
+| **Arbitrum One** | Production auctions and mainnet settlement |
 | **Infura** | Blockchain RPC infrastructure |
 | **Microsoft Azure** | Application hosting |
 
@@ -181,8 +182,8 @@ Academy's scenario executor supports three environments:
 | Environment | Purpose |
 |---|---|
 | **Test** | Accelerated off-chain simulation and evaluation |
-| **Sim** | On-chain testnet validation using real contracts and test assets |
-| **Live** | Mainnet execution with real economic commitments |
+| **Sim** | On-chain testnet validation using real contracts and test assets, including Ethereum Sepolia |
+| **Live** | Arbitrum One mainnet execution with real economic commitments |
 
 Scenarios can progress from **Test → Sim → Live**, preserving their distribution strategy while applying the appropriate network configuration.
 
@@ -256,7 +257,7 @@ Selected libraries, components, and integration interfaces may be released separ
 
 **[Discord](https://discord.gg/QkJqp4snHQ)** — Community and discussion.
 
-**Contact:** info@tradesphere.com
+**Contact:** [info@tradesphere.com](mailto:info@tradesphere.com)
 
 ---
 

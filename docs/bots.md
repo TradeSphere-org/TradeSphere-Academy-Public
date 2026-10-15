@@ -14,7 +14,7 @@ The framework supports three execution environments:
 |---|---|---|
 | **Test** | Off-chain mock | Rapid simulation and scenario evaluation |
 | **Sim** | On-chain testnet | Contract and transaction validation |
-| **Live** | Mainnet | Restricted, authorized validation using real assets |
+| **Live** | Arbitrum One mainnet | Restricted, authorized validation using real assets |
 
 Bot configuration, scenario execution, and administration are currently restricted.
 
@@ -75,8 +75,8 @@ It combines the distribution schedule with parameters controlling simulated part
 | **Distribution** | Supply allocation across rounds |
 | **Flow** | Rate at which tokens become available |
 | **Rounds / Steps** | Intervals with defined distribution characteristics |
-| **Duration** | Total auction operating period |
-| **Floor Price** | Minimum clearing price |
+| **Duration (Config)** | Total auction operating period; defined in auction Config |
+| **Floor Price (Config)** | Minimum clearing price; defined in auction Config |
 | **Bidder Count** | Number of automated participants |
 | **Bid Timing** | When bots may submit bids |
 | **Bidder Behavior** | Strategies and behavioral profiles |
@@ -235,11 +235,11 @@ This validates transaction execution, contract interaction, clearing, settlement
 
 Scenarios can be cloned from Sim into Live using the appropriate network and asset configuration.
 
-### Live — Mainnet Execution
+### Live — Arbitrum One Mainnet Execution
 
-Live operates against mainnet smart contracts using real assets.
+Live operates against Arbitrum One mainnet smart contracts using real assets.
 
-Academy's test bot infrastructure can support restricted, explicitly authorized mainnet validation when necessary.
+Academy's test bot infrastructure can support restricted, explicitly authorized Arbitrum One mainnet validation when necessary.
 
 **Test bots are not intended to impersonate organic market demand or operate as undisclosed participants in public auctions.**
 

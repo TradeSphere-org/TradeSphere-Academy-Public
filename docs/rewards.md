@@ -7,7 +7,7 @@
 The first two stages introduce additional incentives:
 
 - **01 — Discovery:** Participate on Ethereum Sepolia using test assets to qualify for IRN matching rewards.
-- **02 — Confidence:** Purchase IRN on mainnet, receive qualifying matching rewards, and participate in the USDC and IRN bonus lottery.
+- **02 — Confidence:** Purchase IRN on Arbitrum One, receive qualifying matching rewards, and participate in the USDC and IRN bonus lottery.
 
 **Discovery establishes eligibility for matching rewards. Confidence determines the rewards.**
 
@@ -28,7 +28,7 @@ The campaign allocates 5% of IRN's total supply of 1 trillion tokens.
 | 05 | Peak | 30% | 15 billion |
 | **Total** | | **100%** | **50 billion** |
 
-Discovery's 5 billion IRN allocation is reserved for Confidence incentives rather than distributed as mainnet tokens during Discovery.
+Discovery's 5 billion IRN allocation is reserved for Confidence incentives rather than distributed as Arbitrum One tokens during Discovery.
 
 Confidence therefore has:
 
@@ -67,7 +67,7 @@ The address used during Discovery establishes eligibility for matching rewards i
 
 Participants must use **the same wallet address** when purchasing IRN during Confidence.
 
-Discovery's testnet auction supply is currently configured at **1 billion test IRN**. This does not limit the number of mainnet IRN tokens eligible for matching in Confidence.
+Discovery's testnet auction supply is currently configured at **1 billion test IRN**. This does not limit the number of Arbitrum One IRN tokens eligible for matching in Confidence.
 
 Discovery determines eligibility, not the size of an individual's matching reward.
 
@@ -75,7 +75,7 @@ Discovery determines eligibility, not the size of an individual's matching rewar
 
 ## 02 — Confidence
 
-Confidence is the first mainnet auction, using real USDC and IRN.
+Confidence is the first Arbitrum One mainnet auction, using real USDC and IRN.
 
 It introduces two separate incentives:
 
@@ -267,7 +267,7 @@ Discovery and Confidence take place on separate networks.
 | Stage | Network | Assets |
 |---|---|---|
 | Discovery | Ethereum Sepolia | Test assets |
-| Confidence | Ethereum Mainnet | Real assets |
+| Confidence | Arbitrum One | Real assets |
 
 Qualification is linked through the participant's wallet address.
 
@@ -301,7 +301,7 @@ Discovery matching rewards and the Confidence bonus lottery are specific to Conf
 
 Discovery provides the initial testnet qualification environment.
 
-Confidence is the planned first mainnet stage, conditional on Discovery meeting its graduation requirements.
+Confidence is the planned first Arbitrum One stage, conditional on Discovery meeting its graduation requirements.
 
 The incentive structure is defined as:
 
