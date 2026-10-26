@@ -6,79 +6,70 @@ TradeSphere Academy uses **Uniswap's Continuous Clearing Auction (CCA)** protoco
 
 Participants bid for tokens as supply is released over time. Clearing prices and allocations respond to demand under the protocol's rules.
 
-Academy extends CCA with configurable distribution scenarios, automated participants, real-time visualization, and replay.
+Academy extends CCA with configurable distribution scenarios, automated participants, real-time visualization, live monitoring, and replay.
 
-**Uniswap provides the auction protocol. Academy provides the tools to configure, operate, and understand it.**
+Academy can also connect to existing Uniswap CCA auctions by contract address, including auctions deployed outside Academy.
+
+**Uniswap provides the auction protocol. Academy provides the tools to configure, operate, monitor, and understand it.**
 
 ---
 
-## Academy Auctions & Staged Campaigns
+## Campaigns, Phases & Auction Attempts
 
-### Why Multiple Auctions?
+An initial auction can help a project discover its market, while a larger project may choose several phases to build participation, funding, and liquidity progressively. **Academy doesn't require a multi-auction campaign**: a single auction may be the entire plan.
 
-A single auction can establish an initial market price, but it may not generate sufficient capital or liquidity to support a developing project.
-
-Builders need a way to introduce supply progressively, attract participants, and finance continued development without committing their entire token allocation at launch.
-
-Academy's staged campaign model addresses these requirements through controlled distribution and successive funding opportunities.
-
-### Campaign → CCA → Steps
-
-An **Academy Auction** represents a campaign composed of multiple independently executed Uniswap CCAs.
+### Campaign → Phase → Attempt → Auction Stages
 
 | Level | Responsibility |
 |---|---|
-| **Academy Auction** | Campaign allocation, stages, graduation, scheduling, and cumulative results |
-| **CCA Stage** | Independent auction execution, clearing, settlement, exits, and claims |
-| **Steps / Rounds** | Token distribution schedule within an individual CCA |
+| **Campaign** | Project-defined overall objectives and distribution plan |
+| **Phase** | Milestone and published graduation requirements |
+| **Attempt / CCA instance** | Individual auction execution, clearing, settlement, exits, and claims |
+| **Scenario** | Reusable strategy chosen for each attempt |
+| **Auction Stage** | Portion of an auction's distribution schedule with its own flow rate |
 
-The structure applies distribution at two levels: a campaign allocates supply across CCA stages, and each CCA distributes its supply across steps.
+A phase may have multiple attempts. If one attempt doesn't achieve the objective, a project can repeat the scenario or try a different approach, subject to its rules. A failed **attempt** does not automatically mean a failed **phase**. An active auction's terms stay governed by its deployed contract.
 
-Participants experience one Academy Auction while the underlying CCAs operate independently.
+### Gridiron — The Reckoning
 
-### Graduation & Progression
+Gridiron is Academy's first featured project, introducing the IRN token economy through **five campaign phases**.
 
-Each stage must meet its published minimum funding requirement to graduate.
-
-- **Graduated:** The campaign may advance to the next stage.
-- **Not Graduated:** The current campaign ends. The project may launch another Academy Auction later.
-
-Completed stage results can inform the timing and configuration of future stages.
-
-Typical CCA durations are expected to be approximately **3–4 days**. Strong participation may justify shorter intervals between stages; slower development may warrant additional preparation and outreach.
-
-The terms of an active CCA remain unchanged. Adjustments apply to future stages.
-
-### Liquidity Development
-
-Following successful Confidence graduation, the project intends to establish its initial Uniswap liquidity pool.
-
-This creates two complementary markets:
-
-| Market | Purpose |
-|---|---|
-| **Uniswap Liquidity Pool** | Ongoing secondary-market trading |
-| **Academy CCA Stages** | Controlled primary distribution and capital formation |
-
-Later CCA stages can operate alongside the liquidity pool, introducing additional supply and funding opportunities as the project develops.
-
-Pool creation depends on the availability of designated assets and the completion of the required liquidity operations.
-
-### The Reckoning Campaign
-
-*Gridiron: The Reckoning* illustrates the staged approach.
-
-| Stage | Network | Purpose | Liquidity |
+| Phase | Network | Purpose | Liquidity |
 |---|---|---|---|
-| **01 — Discovery** | Ethereum Sepolia | Participation and qualification | — |
-| **02 — Confidence** | Arbitrum One | Initial funding and price discovery | Launch initial pool |
-| **03 — Momentum** | Arbitrum One | Continue controlled distribution | Add liquidity |
-| **04 — Expansion** | Arbitrum One | Broaden participation and capital formation | Add liquidity |
-| **05 — Peak** | Arbitrum One | Complete the planned campaign allocation | Add liquidity |
+| **01 — Discovery** | Ethereum Sepolia | Qualification through the Discovery auction | — |
+| **02 — Confidence** | Arbitrum One | Real-USDC funding through the Confidence auction | Planned initial pool |
+| **03 — Momentum** | Arbitrum One | Further controlled distribution | Potential additions |
+| **04 — Expansion** | Arbitrum One | Broaden participation and capital formation | Potential additions |
+| **05 — Peak** | Arbitrum One | Complete the planned campaign allocation | Potential additions |
 
-Each stage advances only if the preceding CCA graduates. Subsequent stages can contribute additional assets to the existing liquidity pool and project treasury.
 
-**Implementation status:** Individual CCA execution is operational. Unified campaign orchestration, adaptive scheduling, and campaign-level graduation are part of Academy's evolving implementation.
+#### The Discovery Auction — Live Test AuctionN
+
+The Discovery auction runs on **Ethereum Sepolia**, using
+**test USDC and test IRN**.
+
+Designed as a qualification auction, it provides an extended
+participation window to attract bidders and establish community
+interest before advancing to the Confidence phase.
+
+Minimum and maximum bidder limits define the participation
+requirements. The Discovery auction must meet its minimum
+qualification threshold for the campaign to advance.
+
+Participants experience real blockchain transactions and
+continuous price discovery without committing real purchase funds.
+
+Participation in the Discovery auction also establishes eligibility
+for additional IRN matching rewards through qualifying purchases
+in the Confidence auction.
+
+**[Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)**
+
+#### The Confidence Auction — Planned Mainnet Auction
+
+The Confidence auction is planned for **Arbitrum One**, using real USDC to purchase IRN. Its launch depends on the Discovery auction reaching the minimum participation requirement. Intended qualifying purchases are **100–5,000 USDC**; matching rewards and a bonus lottery are subject to published eligibility and settlement rules.
+
+See [Rewards & Qualification](rewards.md). Unified campaign/phase orchestration is planned; individual CCA execution is operational.
 
 ---
 
@@ -109,15 +100,15 @@ The smart contracts remain authoritative for clearing and settlement. Academy ma
 
 ---
 
-## Rounds, Steps & Token Flow
+## Auction Stages & Token Flow
 
-Academy organizes each CCA's distribution schedule into **rounds (steps)**.
+Academy organizes each CCA's token distribution schedule into **stages**.
 
-A round has a defined duration and allocation of the auction's supply. Its flow rate depends on the relationship between those values.
+A stage has a defined duration and allocation of the auction's supply. Its flow rate depends on the relationship between those values.
 
 ### Distribution Example
 
-| Round | Duration Share | Supply Share |
+| Stage | Duration Share | Supply Share |
 |---|---:|---:|
 | 1 | 20% | 15% |
 | 2 | 20% | 20% |
@@ -125,17 +116,17 @@ A round has a defined duration and allocation of the auction's supply. Its flow 
 | 4 | 20% | 25% |
 | 5 | 20% | 15% |
 
-*Illustrative configuration. Equal round durations produce flow rates proportional to the allocated supply.*
+*Illustrative configuration. Equal stage durations produce flow rates proportional to the allocated supply.*
 
 ### Flow Visualization
 
-![TradeSphere Academy — Live Auction Execution](../assets/academy-auction.gif)
+![Live auction flow — Stage 3 to Stage 4](../assets/academy-auction-live.gif)
 
-*Academy Test auction showing rounds, token flow, clearing, bids, and participant controls.*
+*Live auction clip: Stage 3 transitions into Stage 4, showing changes in token flow, remaining supply, and clearing information. *
 
-The flow indicator displays the active round, its relative release rate, allocated supply, and remaining tokens.
+The flow indicator displays the active stage, its relative release rate, allocated supply, and remaining tokens.
 
-Rounds describe changes in distribution conditions, not independent auctions.
+Stages describe changes in distribution conditions, not independent auctions.
 
 ### Realized & Unrealized Allocations
 
@@ -143,17 +134,17 @@ Allocations have distinct states during execution.
 
 **Unrealized**
 
-Current-round fills remain subject to changing bid competition and clearing conditions.
+Current-stage fills remain subject to changing bid competition and clearing conditions.
 
 **Realized**
 
-At a completed round boundary, that round's fills are established. A bid may be partially or fully filled.
+At a completed stage boundary, that stage's fills are established. A bid may be partially or fully filled.
 
 **Continued Allocation**
 
-Eligible bids can receive additional fills in subsequent rounds.
+Eligible bids can receive additional fills in subsequent stages.
 
-A participant's cumulative allocation can therefore include both realized fills from completed rounds and unrealized fills from the current round.
+A participant's cumulative allocation can therefore include both realized fills from completed stages and unrealized fills from the current stage.
 
 This distinction describes the auction calculations. Separate realized and unrealized position fields and UI presentation are planned enhancements.
 
@@ -188,7 +179,7 @@ When demand exceeds supply at the current clearing price, the clearing price can
 
 Bids below the clearing price stop qualifying for additional allocation. Bids with higher price ceilings can remain eligible.
 
-Within an active round, additional bids can displace unrealized allocations before that round's fills are established.
+Within an active stage, additional bids can displace unrealized allocations before that stage's fills are established.
 
 ### Bid Status
 
@@ -202,7 +193,7 @@ Academy presents the following active bid conditions:
 
 After the auction closes, final outcomes are represented as **Cleared**, **Partial**, or **Outbid**.
 
-Bid status and allocation are related but distinct: a bid may already have realized fills from completed rounds even if its remaining demand becomes outbid.
+Bid status and allocation are related but distinct: a bid may already have realized fills from completed stages even if its remaining demand becomes outbid.
 
 ---
 
@@ -235,6 +226,40 @@ Academy's .NET services use Nethereum and calculation utilities for contract dat
 These calculations support monitoring and replay without replacing the smart contracts as the authoritative source.
 
 For execution environments and automated validation, see [Bots & Scenarios](bots.md).
+
+---
+
+## Connecting to Existing Uniswap CCA Auctions
+
+Academy can load existing Uniswap CCA auctions directly using their deployed contract addresses, including auctions created outside Academy.
+
+This allows Academy to operate as a monitoring and analysis environment independently of its auction creation workflow.
+
+### Live Monitoring
+
+Once an existing CCA is loaded, Academy can reconstruct its execution state from blockchain data and monitor the auction as it progresses.
+
+The loaded auction can be examined using Academy's existing capabilities, including:
+
+- Auction configuration and distribution schedule
+- Clearing prices and token flow
+- Bids and participant positions
+- Checkpoint-based execution calculations
+- Auction progress and settlement state
+
+### Auction Replay
+
+Academy can also replay existing auction activity using recorded blockchain state and its auction calculation engine.
+
+Replay provides an opportunity to examine historical execution, observe changes in clearing conditions, and compare reconstructed calculations against recorded on-chain results.
+
+This is useful for technical analysis, testing, verification, and understanding the behavior of independently deployed CCAs.
+
+### Availability
+
+**Loading external CCA contracts, live monitoring, and replay are implemented capabilities currently restricted to administrators.**
+
+These capabilities do not require the original auction to have been created through TradeSphere Academy.
 
 ---
 
@@ -294,13 +319,13 @@ At any point during an active auction:
 
 `Total Filled Amount = Realized Amount + Unrealized Amount`
 
-Realized amounts originate from completed rounds. Unrealized amounts represent current-round allocations that may still change.
+Realized amounts originate from completed stages. Unrealized amounts represent current-stage allocations that may still change.
 
 At the end of the auction, the cumulative allocation is finalized under the contract's clearing rules.
 
 The distinction between realized allocations, auction settlement, and individual claims is important:
 
-- **Realized:** Allocation established through completed rounds.
+- **Realized:** Allocation established through completed stages.
 - **Settled:** Final auction accounting completed.
 - **Claimed:** The participant has executed the applicable claim operation.
 
@@ -312,6 +337,8 @@ The planned position-model update will expose realized and unrealized values sep
 
 ## Related Documentation
 
+- [TradeSphere Academy](https://academy.tradesphere.org) — Live application
+- [Gridiron Discovery Auction](https://academy.tradesphere.org/gridiron) — Public Sepolia test auction
 - [Architecture](architecture.md) — Application architecture and creation
 - [Technology Stack](technology.md) — .NET, Nethereum, Reown, and supporting technologies
 - [Bots & Scenarios](bots.md) — Test, Sim, Live, automation, and replay

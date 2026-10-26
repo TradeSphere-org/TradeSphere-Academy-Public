@@ -18,6 +18,8 @@ The framework supports three execution environments:
 
 Bot configuration, scenario execution, and administration are currently restricted.
 
+Academy also supports loading independently deployed Uniswap CCA auctions by contract address for reconstruction, monitoring, and replay. These capabilities are implemented but currently restricted to administrators.
+
 ### Test Bots vs. External Agents
 
 TradeSphere distinguishes between internally controlled test bots and independent market participants.
@@ -47,7 +49,7 @@ Test bots introduce controlled variation, allowing Academy to evaluate:
 - Competition for available token supply
 - Clearing price progression
 - Bid displacement and partial allocations
-- Changes in demand across rounds
+- Changes in demand across stages
 - Distribution and flow-rate behavior
 - Different participant populations and strategies
 - Checkpoint consistency and calculation accuracy
@@ -63,18 +65,14 @@ An auction scenario defines the conditions under which an auction executes.
 
 It combines the distribution schedule with parameters controlling simulated participants and their bidding behavior.
 
-![TradeSphere Academy — Automated Auction Scenario](../assets/academy-auction.gif)
-
-*Academy auction execution with configurable rounds, token flow, bids, and automated participants.*
-
 ### Configuration Parameters
 
 | Parameter | Purpose |
 |---|---|
 | **Allocation** | Total token supply assigned to the auction |
-| **Distribution** | Supply allocation across rounds |
+| **Distribution** | Supply allocation across stages |
 | **Flow** | Rate at which tokens become available |
-| **Rounds / Steps** | Intervals with defined distribution characteristics |
+| **Stages / Steps** | Intervals with defined distribution characteristics |
 | **Duration (Config)** | Total auction operating period; defined in auction Config |
 | **Floor Price (Config)** | Minimum clearing price; defined in auction Config |
 | **Bidder Count** | Number of automated participants |
@@ -170,13 +168,13 @@ Their purpose, however, remains testing and validation rather than independent m
 
 Submitting every automated bid simultaneously produces a different competitive environment from distributing bids over time.
 
-Academy supports configuring bot participation around auction rounds and execution intervals.
+Academy supports configuring bot participation astage auction stages and execution intervals.
 
-### Round-Based Participation
+### Stage-Based Participation
 
-Test bots can be constrained by round-specific participation rules.
+Test bots can be constrained by stage-specific participation rules.
 
-For example, a scenario may allow each bot to submit one bid per round.
+For example, a scenario may allow each bot to submit one bid per stage.
 
 This limits bidding frequency while still allowing competition to develop as additional bids enter the auction.
 
@@ -231,9 +229,33 @@ Test bots submit real testnet transactions using test accounts and test assets.
 
 This validates transaction execution, contract interaction, clearing, settlement, and claims alongside Academy's application calculations.
 
-**Gridiron's Discovery auction uses the Sim environment**, allowing qualification through actual on-chain participation without requiring real purchase funds.
-
 Scenarios can be cloned from Sim into Live using the appropriate network and asset configuration.
+
+### The Discovery Auction — Public Test Auction
+
+The Discovery auction is Gridiron's initial public qualification
+auction, operating on **Ethereum Sepolia** using **test USDC and test IRN**.
+
+An extended participation window accommodates a broad range of
+participants, while minimum and maximum bidder requirements
+establish the qualification boundaries.
+
+Unlike accelerated Test scenarios, the Discovery auction operates
+on a live blockchain with actual transactions, clearing, and
+settlement using test assets.
+
+Academy provides test USDC once per wallet, immediately before
+the participant's first bid. Connecting a wallet alone does not
+establish qualification.
+
+The Discovery auction must satisfy its participation requirements
+before the campaign can advance to the Confidence phase.
+
+**Controlled test bots and independent public participants serve
+different purposes.** Public qualification is intended to
+demonstrate genuine community interest and participation.
+
+**[Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)**
 
 ### Live — Arbitrum One Mainnet Execution
 
@@ -251,6 +273,10 @@ Replay and verification remain available for Live auction execution.
 
 ## Replay & Reconstruction
 
+![Academy auction replay — complete execution](../assets/academy-auction-replay.gif)
+
+*Replay at speed showing auction stages, price discovery, and allocation changes. Replay is an implemented administrator-only capability.*
+
 Academy supports reconstructing auction activity and re-evaluating execution results.
 
 This is especially valuable for automated scenarios, where numerous bids can affect clearing prices and allocations.
@@ -258,7 +284,7 @@ This is especially valuable for automated scenarios, where numerous bids can aff
 Replay supports analysis of:
 
 - Bid submission sequences
-- Competition across rounds
+- Competition across stages
 - Clearing price progression
 - Realized and unrealized allocations
 - Token distribution and checkpoints
@@ -279,15 +305,35 @@ Where randomized timing affects participation, recorded transaction sequences su
 
 Replay is therefore both an analytical tool and a means of validating the auction execution model.
 
+### Existing Uniswap CCA Auctions
+
+Academy can load existing Uniswap CCA auctions by deployed contract address, including auctions created independently of Academy.
+
+Once loaded, the application can reconstruct the auction configuration and execution state from blockchain records and checkpoints.
+
+These auctions can be:
+
+- Monitored as they execute on-chain
+- Examined using Academy's auction and token flow visualizations
+- Reconstructed from recorded execution data
+- Replayed using Academy's calculation engine
+- Analyzed by comparing reconstructed results against recorded blockchain state
+
+This capability extends Academy's monitoring and replay functionality beyond auctions created through its own registration and scenario workflows.
+
+**Existing-auction loading, live monitoring, and replay are implemented but currently restricted to administrators.**
+
+[Detailed Auction Mechanics](auction.md)
+
 ---
 
 ## TheQuickening — Example Scenario
 
 **TheQuickening** is an Academy auction scenario used for Gridiron execution and validation.
 
-It distributes token supply across five rounds, with changing flow rates and automated bidding activity.
+It distributes token supply across five stages, with changing flow rates and automated bidding activity.
 
-| Round | Supply Allocation | Relative Flow |
+| Stage | Supply Allocation | Relative Flow |
 |---|---:|---|
 | 1 | 15% | Slowest |
 | 2 | 20% | Slow |
@@ -295,15 +341,15 @@ It distributes token supply across five rounds, with changing flow rates and aut
 | 4 | 25% | Fast |
 | 5 | 15% | Fastest |
 
-The flow-rate progression is intentional. Round durations differ, so flow is determined by **both the token allocation and the duration of each round**.
+The flow-rate progression is intentional. Stage durations differ, so flow is determined by **both the token allocation and the duration of each stage**.
 
-A round with a smaller allocation can have a higher flow rate if its duration is sufficiently shorter.
+A stage with a smaller allocation can have a higher flow rate if its duration is sufficiently shorter.
 
 ### Automated Participation
 
 The scenario supports a population of test bots assigned different behavioral profiles.
 
-Bots can participate according to configured constraints, including bidding frequency, spending budgets, and randomized timing within rounds.
+Bots can participate according to configured constraints, including bidding frequency, spending budgets, and randomized timing within stages.
 
 As the auction progresses:
 
@@ -311,7 +357,7 @@ As the auction progresses:
 - Bots submit bids under their behavioral and economic constraints.
 - Clearing prices respond to qualifying demand.
 - Competitive bids can displace current unrealized allocations.
-- Completed rounds establish realized fills.
+- Completed stages establish realized fills.
 - Replay reconstructs and verifies the resulting execution.
 
 TheQuickening can be evaluated through off-chain Test execution and on-chain Sim validation.
@@ -322,7 +368,7 @@ Its value is not simply the number of automated participants, but the ability to
 
 ## Current Availability & Future Direction
 
-Academy's test bots, behavioral models, scenario execution, and replay capabilities are implemented and currently restricted to administrative use.
+Academy's test bots, behavioral models, scenario execution, external CCA loading, and replay capabilities are implemented and currently restricted to administrative use.
 
 The broader TradeSphere platform already supports scenarios and automated participants. Its bots are actively executing **Ideas, Missions, and Games** through the existing activity framework.
 
@@ -344,6 +390,8 @@ The distinction remains important:
 
 ## Related Documentation
 
+- [TradeSphere Academy](https://academy.tradesphere.org)
+- [Gridiron Discovery Auction](https://academy.tradesphere.org/gridiron)
 - [Architecture](architecture.md)
 - [Auction Mechanics](auction.md)
 - [Technology Stack](technology.md)

@@ -2,11 +2,13 @@
 
 ## Overview
 
-TradeSphere Academy is built with **.NET 10, Blazor Server, Fluent UI Blazor, Nethereum, Reown, and Uniswap Continuous Clearing Auctions (CCA)**.
+TradeSphere Academy is built with **.NET 10, Blazor Server, Fluent UI Blazor 5, Nethereum, Reown, and Uniswap Continuous Clearing Auctions (CCA)**.
 
 The architecture combines C# application services, Ethereum smart contracts, connected wallets, automated execution, and real-time market visualization.
 
 Rather than building a proprietary auction protocol, Academy uses Uniswap CCA and develops the supporting infrastructure for auction configuration, execution, monitoring, simulation, and replay.
+
+Academy can also connect to existing Uniswap CCA auctions by contract address, including independently deployed auctions, for live monitoring and replay.
 
 Academy operates as a standalone application, with domain models and services designed for future integration into the broader TradeSphere platform.
 
@@ -18,12 +20,12 @@ Academy operates as a standalone application, with domain models and services de
 |---|---|
 | **.NET 10 / C#** | Domain models, application services, auction calculations, and execution |
 | **Blazor Server** | Interactive UI and server-managed application state |
-| **Fluent UI Blazor** | Component framework and design system |
+| **Fluent UI Blazor 5** | Component framework and design system |
 | **Nethereum** | Ethereum integration, contract operations, and managed transactions |
 | **Reown** | Browser wallet connectivity and participant-authorized transactions |
 | **Uniswap CCA** | On-chain token distribution, clearing, and settlement |
-| **Ethereum** | Mainnet auction execution |
-| **Sepolia** | Testnet contract execution and validation |
+| **Ethereum Sepolia** | Testnet contract execution and validation |
+| **Arbitrum One** | Planned mainnet auction execution and settlement |
 | **Infura** | Blockchain RPC connectivity |
 | **Microsoft Azure** | Application hosting |
 | **GitHub** | Source management and technical documentation |
@@ -39,6 +41,7 @@ C# is used across Academy's application architecture:
 - Scenario execution and test bots
 - Fixed-point pricing and token calculations
 - Blockchain contract integration
+- Existing CCA contract loading
 - Interactive UI components
 - Replay and result verification
 
@@ -83,13 +86,13 @@ This separation provides the benefits of a centralized application model while r
 
 ![TradeSphere Academy — Application Interface](../assets/academy-overview.png)
 
-*Academy's Blazor Server application using .NET 10 and Fluent UI Blazor.*
+*Academy's Blazor Server application using .NET 10 and Fluent UI Blazor 5.*
 
 ---
 
-## Fluent UI Blazor
+## Fluent UI Blazor 5
 
-Academy uses **Fluent UI Blazor** as its component framework.
+Academy uses **Fluent UI Blazor 5** as its component framework.
 
 Fluent components provide reusable controls for navigation, forms, dialogs, data presentation, and user interaction.
 
@@ -140,6 +143,16 @@ Academy provides conversion and calculation utilities for token units, decimals,
 
 These calculations support contract interaction, monitoring, scenario evaluation, and replay.
 
+### Existing Contract Integration
+
+Academy can load existing Uniswap CCA contracts directly by address, including auctions deployed independently of Academy.
+
+Nethereum supports the contract queries and blockchain data retrieval required to reconstruct auction configurations, checkpoints, bids, and execution state.
+
+The loaded auctions can then use Academy's monitoring, calculation, and replay services without requiring deployment through Academy.
+
+**Existing-auction loading and replay are implemented capabilities currently restricted to administrators.**
+
 Official project: [Nethereum](https://nethereum.com/)
 
 ---
@@ -182,11 +195,13 @@ Uniswap's contracts provide bidding, clearing, allocation, and settlement mechan
 
 Academy supplies the surrounding application infrastructure for configuring auctions, evaluating scenarios, monitoring execution, managing positions, and reconstructing results.
 
+Academy also supports connecting to existing CCA contracts, extending its functionality beyond auctions created through Academy.
+
 **The CCA contracts remain authoritative for auction execution.**
 
 Academy's calculations support visualization, verification, and analysis without replacing the protocol's on-chain rules.
 
-For the auction mechanics and staged campaign model, see [Auction Mechanics](auction.md).
+For auction mechanics and the project-defined campaign model, see [Auction Mechanics](auction.md).
 
 Official documentation: [Uniswap CCA](https://developers.uniswap.org/docs/liquidity/liquidity-launchpad/overview)
 
@@ -199,10 +214,27 @@ Academy supports three execution environments.
 | Environment | Network | Purpose |
 |---|---|---|
 | **Test** | Off-chain | Mock execution and accelerated scenario evaluation |
-| **Sim** | Sepolia / testnet | Actual smart contract execution using test assets |
-| **Live** | Mainnet | Real auction transactions and economic commitments |
+| **Sim** | Ethereum Sepolia / testnet | Actual smart contract execution using test assets |
+| **Live** | Arbitrum One | Mainnet auction transactions and economic commitments |
 
 Scenarios can be cloned from Test to Sim and from Sim to Live, with network-specific addresses, assets, and contract configurations applied as appropriate.
+
+
+### Live Discovery Validation
+
+Academy's first public test auction is the Discovery auction,
+part of Gridiron's The Reckoning campaign.
+
+The Discovery auction operates on **Ethereum Sepolia** using
+**test USDC and test IRN**, with an extended participation window
+and defined minimum and maximum bidder requirements.
+
+This provides an opportunity to validate real blockchain
+transactions, competitive bidding, clearing, and settlement
+while establishing the participation needed to advance to
+the Confidence phase.
+
+**[Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)**
 
 ### Automation & Replay
 
@@ -212,9 +244,11 @@ These bots are part of Academy's testing infrastructure, not independent externa
 
 Replay reconstructs execution and compares application calculations with recorded auction results.
 
-Scenario administration, test bot controls, and replay are implemented but currently restricted to administrative use.
+Replay also supports existing CCA auctions loaded directly by contract address.
 
-For behavioral models and execution details, see [Test Bots & Scenarios](bots.md).
+Scenario administration, test bot controls, external contract loading, and replay are implemented but currently restricted to administrative use.
+
+For stage-based behavioral models and execution details, see [Test Bots & Scenarios](bots.md).
 
 ---
 
@@ -224,7 +258,7 @@ Academy is hosted on **Microsoft Azure**.
 
 The application coordinates Blazor Server sessions, backend services, blockchain monitoring, and RPC connectivity.
 
-**Infura** provides Ethereum network access for contract queries and transaction operations.
+**Infura** provides Ethereum-compatible network access for contract queries and transaction operations.
 
 Centralized blockchain observation helps reduce unnecessary RPC traffic while supporting multiple connected participants.
 
@@ -239,12 +273,14 @@ The public Academy application supports auction discovery, connected-wallet part
 Additional capabilities are already implemented but currently restricted:
 
 - Auction and token creation
+- Existing CCA contract loading by address
+- Live monitoring of externally deployed CCAs
 - Scenario configuration and administration
 - Automated test bot execution
 - Accelerated mock testing and on-chain simulation
-- Replay and verification
+- Reconstruction, replay, and verification
 
-Broader access is planned following validation of the initial IRN Discovery and Confidence auctions.
+Broader access is planned following validation of the initial Gridiron Discovery and Confidence auctions.
 
 ### Relationship to TradeSphere
 
@@ -270,12 +306,15 @@ Academy's technology choices reflect several architectural priorities:
 - **Direct wallet authorization:** Keep participant transactions under their control.
 - **Scenario-driven validation:** Evaluate configurations before committing to mainnet execution.
 - **Observable execution:** Support monitoring, reconstruction, and replay.
+- **External CCA compatibility:** Support independently deployed auctions without requiring Academy-based creation.
 - **Reusable architecture:** Develop capabilities that can extend into the broader TradeSphere platform.
 
 ---
 
 ## Related Documentation
 
+- [TradeSphere Academy](https://academy.tradesphere.org)
+- [Gridiron Discovery Auction](https://academy.tradesphere.org/gridiron)
 - [Architecture](architecture.md)
 - [Auction Mechanics](auction.md)
 - [Test Bots & Scenarios](bots.md)

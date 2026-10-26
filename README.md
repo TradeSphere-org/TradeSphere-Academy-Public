@@ -8,7 +8,7 @@ TradeSphere Academy helps projects launch token economies through on-chain aucti
 
 Built on **Uniswap's Continuous Clearing Auction (CCA)** protocol, Academy provides the infrastructure to design, test, operate, and participate in token launches.
 
-Our approach goes beyond a single auction. Projects can distribute tokens progressively, raise capital, establish liquidity, and develop their markets through staged campaigns.
+Projects can begin with a single auction or develop a campaign of phases and repeated auction attempts. Academy supports market-driven approaches that fit each project’s goals.
 
 **Working software. Real blockchain transactions. Observable results.**
 
@@ -16,9 +16,7 @@ Our approach goes beyond a single auction. Projects can distribute tokens progre
 
 *TradeSphere Academy — on-chain auctions powered by Uniswap CCA.*
 
-## Why Academy?
-
-**Launching a token is an event. Building an economy is a process.**
+## Launching a Token Is an Event. Building an Economy Is a Process.
 
 An initial token sale may establish a price, but projects need more than a launch event to succeed. They need participants, capital, liquidity, and opportunities to grow.
 
@@ -30,7 +28,7 @@ Projects can:
 - Discover prices through actual bids rather than arbitrary valuations.
 - Raise capital as development progresses.
 - Establish and expand secondary-market liquidity.
-- Attract participants through successive campaign stages.
+- Attract participants through project-defined campaign phases.
 - Test economic strategies before committing real assets.
 
 Participants can discover emerging projects, bid for tokens, develop strategies, and take part in building new economies.
@@ -49,17 +47,13 @@ Graduation into TradeSphere is an opportunity, not a requirement.
 
 ---
 
-## One Academy Auction. Multiple Uniswap CCAs.
+## Your Campaign. Your Strategy.
 
-A conventional token launch often involves one auction followed by liquidity pool creation.
+A project might launch a single auction—or design a campaign with several phases and objectives. **Gridiron's The Reckoning** uses five phases, but that is Gridiron's plan, not a requirement for other projects.
 
-Academy's evolving campaign model introduces a broader approach: an **Academy Auction** coordinates multiple independently executed Uniswap CCAs.
+A phase may require more than one **attempt**: each attempt executes an individual Uniswap CCA, with its own bidding, clearing, settlement, exits, and claims. The project can repeat or change its **scenario** (distribution and participation strategy) in a subsequent attempt.
 
-Each stage has its own bidding, clearing, settlement, exits, and claims.
-
-Completed stages contribute to the campaign's cumulative results, allowing future auction configurations and schedules to respond to actual participation.
-
-Every stage must meet its published minimum funding requirement to graduate. If it fails, the current campaign concludes.
+An unsuccessful auction attempt does not automatically end its campaign phase. Advancement depends on the phase's published graduation rules and the project's decision to proceed. Within an auction, **stages** describe changes in token distribution and flow—not campaign phases.
 
 The objective is not to guarantee success or eliminate market risk. It is to provide a repeatable, market-driven framework for launching and developing token economies.
 
@@ -75,15 +69,38 @@ This allows funding and market liquidity to develop throughout a campaign instea
 
 **The auction launches the market. The campaign helps build the economy.**
 
+
+### Market Development & Capital Formation
+
+Projects need funding at different stages of their development.
+Traditionally, this may involve private token sales, OTC agreements
+with investors or institutions, exchange arrangements, and
+liquidity providers.
+
+Academy offers another approach: competitive, on-chain auctions
+where participants help discover the price and determine how
+capital is allocated to the project.
+
+An auction may support an initial market launch, additional
+funding, or continued token distribution as the project grows.
+Projects can also establish and expand liquidity pools or pursue
+exchange listings independently.
+
+The Reckoning is Gridiron's five-phase campaign strategy.
+Other projects may use entirely different approaches, including
+a single auction.
+
+**Markets evolve. Funding opportunities should evolve with them.**
+
 ---
 
-## Featured Campaign — Gridiron: The Reckoning
+## Featured Project — Gridiron
 
 We're putting Academy to work on our own projects first.
 
-**Gridiron: The Reckoning** is a five-stage campaign introducing the IRN token economy through progressive distribution, funding, and participation.
+**Gridiron** is our first featured project, introducing the IRN token economy through a five-phase campaign of progressive distribution, funding, and participation.
 
-| Stage | Network | Purpose | Liquidity |
+| Phase | Network | Purpose | Liquidity |
 |---|---|---|---|
 | **01 — Discovery** | Ethereum Sepolia | Participation and qualification | — |
 | **02 — Confidence** | Arbitrum One | Initial funding and price discovery | Launch initial pool |
@@ -91,28 +108,46 @@ We're putting Academy to work on our own projects first.
 | **04 — Expansion** | Arbitrum One | Broaden participation and capital formation | Add liquidity |
 | **05 — Peak** | Arbitrum One | Complete the planned campaign allocation | Add liquidity |
 
-Each stage advances only if its predecessor graduates. Subsequent stages can contribute additional assets to the existing liquidity pool and project treasury.
+Each phase advances when its graduation criteria are satisfied. Subsequent phases can contribute additional assets to the existing liquidity pool and project treasury.
 
-### Discovery — Learn, Participate, Qualify
 
-Discovery operates on **Ethereum Sepolia** using test assets and actual blockchain transactions.
+### The Discovery Auction — Live Test Auction
 
-Participants can experience the auction, place bids, and establish eligibility for matching rewards during Confidence without committing real purchase funds.
+The Discovery auction is Academy's first public test auction,
+running on **Ethereum Sepolia** using **test USDC and test IRN**.
 
-**Qualification requires auction participation, not simply connecting a wallet.**
+The auction runs for a defined period, with a limited number of
+participants and a minimum participation requirement to advance
+the campaign to the Confidence phase.
 
-### Confidence — Real Participation, Real Incentives
+Participants can experience real on-chain bidding and continuous
+price discovery without committing real purchase funds.
 
-Confidence is the planned first **Arbitrum One mainnet auction**, conditional on Discovery meeting its progression requirements.
+Participation in the Discovery auction can establish eligibility
+for matching IRN rewards in the Confidence auction.
+
+**Qualification requires placing a bid in the Discovery auction,
+not simply connecting a wallet.**
+
+Academy provides test USDC once per wallet, immediately before
+the first bid—not upon connection, and not again after bidding.
+
+**[Join the Discovery Auction](https://academy.tradesphere.org/gridiron)**
+
+### The Confidence Auction — Real Participation, Real Incentives
+
+The Confidence auction is the planned first **Arbitrum One mainnet auction**, conditional on the Discovery auction meeting its minimum participation requirement of 100 bidders.
+
+The auction will use **real USDC** and is designed for participants making purchases in the **$100–$5,000 range**.
 
 Participants can purchase IRN through Uniswap CCA, with two additional incentives:
 
-- **IRN Matching Rewards:** Qualified Discovery participants who make eligible settled Confidence purchases can receive additional IRN. Matching is proportional when qualifying demand exceeds the available reward reserve.
-- **USDC + IRN Bonus Lottery:** Eligible Confidence participants can qualify for a bonus calculated from 3% of settled USDC proceeds, together with an equivalent IRN amount based on the final clearing price. Discovery participation is not required for lottery eligibility.
+- **IRN Matching Rewards:** Qualified Discovery auction participants who make eligible settled Confidence auction purchases can receive additional IRN, up to 1:1 matching. Matching is proportional when qualifying demand exceeds the available reward reserve.
+- **USDC + IRN Bonus Lottery:** Eligible Confidence auction participants can qualify for a bonus calculated from 3% of settled USDC proceeds, together with an equivalent IRN amount based on the final clearing price. Participation in the Discovery auction is not required for lottery eligibility.
 
 The campaign reserves **5 billion IRN** for the IRN bonus and proportional matching rewards.
 
-Matching eligibility requires the same wallet address used during Discovery and a qualifying settled Confidence purchase within the published limits.
+Matching eligibility requires the same wallet address used in the Discovery auction and a qualifying settled Confidence auction purchase within the published limits.
 
 The lottery, matching distributions, and final eligibility rules are subject to the applicable campaign conditions.
 
@@ -131,19 +166,30 @@ Tokens become available over time according to the auction's configured distribu
 Academy makes that execution visible through:
 
 - Live auction metrics and clearing prices
-- Round-based token flow visualization
+- Stage-based token flow visualization
 - Wallet-connected bidding and position management
 - Realized and unrealized allocation calculations
 - On-chain settlement and claims
 - Scenario testing, automated test bots, and replay
 
-![TradeSphere Academy — Live Auction Execution](assets/academy-auction.gif)
+![Live Academy auction — transition from Stage 3 to Stage 4](assets/academy-auction-live.gif)
 
-*Academy Test execution — configurable rounds, token flow, automated bidding, and continuous clearing.*
+*Live auction execution: Stage 3 transitions to Stage 4 as the token-flow rate and remaining supply update. *
 
 **Uniswap provides the auction protocol. Academy provides the tools to configure, operate, and understand it.**
 
 [Detailed Auction Mechanics](docs/auction.md) · [Uniswap CCA Documentation](https://developers.uniswap.org/docs/liquidity/liquidity-launchpad/overview)
+
+
+### Connect to Existing Auctions
+
+Academy can load existing Uniswap CCA auctions directly by contract address, including auctions deployed outside Academy.
+
+Once loaded, auctions can be monitored live or replayed using Academy's auction engine and visualizations.
+
+This provides developers and project teams with additional tools for observing, analyzing, and verifying auction behavior without requiring deployment through Academy.
+
+**Existing-auction loading, live monitoring, and replay are implemented capabilities currently restricted to administrators.**
 
 ---
 
@@ -201,7 +247,7 @@ TradeSphere already operates bots and scenarios across Ideas, Missions, and Game
 
 ### Replay & Verification
 
-Auction execution can be reconstructed and replayed, allowing calculated results to be compared against recorded activity.
+Auction execution can be reconstructed and replayed, allowing calculated results to be compared against recorded activity. A complete execution can be reviewed in an accelerated 20-second replay; see [Test Bots & Scenarios](docs/bots.md) for the clip and explanation.
 
 Test bots, scenario administration, and replay are implemented capabilities that currently remain restricted to administrators.
 
@@ -246,6 +292,10 @@ Selected libraries, components, and integration interfaces may be released separ
 ---
 
 ## Explore TradeSphere
+
+**[TradeSphere Academy](https://academy.tradesphere.org)** — Explore the platform and participate in live auctions.
+
+**[Gridiron Discovery Auction](https://academy.tradesphere.org/gridiron)** — Participate in the live Sepolia test auction.
 
 **[TradeSphere Website](https://www.tradesphere.org)** — Explore the ecosystem and its applications.
 

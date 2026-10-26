@@ -4,7 +4,9 @@
 
 TradeSphere Academy is a .NET-based application for creating, configuring, testing, and operating on-chain token auctions using **Uniswap's Continuous Clearing Auction (CCA)** protocol.
 
-Academy combines token and auction creation, project registration, scenario-driven execution, blockchain integration, market visualization, and replay.
+Academy combines token and auction creation, project registration, scenario-driven execution, blockchain integration, market visualization, live monitoring, and replay.
+
+Academy can also connect to existing Uniswap CCA auctions by contract address, including auctions deployed independently of Academy.
 
 Its purpose is to help projects establish their initial token economies through market-driven funding, distribution, price discovery, and community participation.
 
@@ -22,7 +24,7 @@ Academy operates independently of TradeSphere's broader organizational model. Pr
 
 Academy is operational as a standalone application, with public access focused on participating in existing auctions.
 
-Its creation, scenario execution, and administrative capabilities are implemented but currently restricted.
+Its creation, scenario execution, external auction loading, and administrative capabilities are implemented but currently restricted.
 
 | Capability | Availability |
 |---|---|
@@ -32,6 +34,9 @@ Its creation, scenario execution, and administrative capabilities are implemente
 | Auction settlement and claims | Supported through the auction lifecycle |
 | Auction registration and creation | Implemented — restricted |
 | New token creation and existing token integration | Implemented — restricted |
+| Loading existing CCA contracts by address | Implemented — restricted |
+| External auction live monitoring | Implemented — restricted |
+| External auction reconstruction and replay | Implemented — restricted |
 | Scenario configuration | Implemented — restricted |
 | Test, Sim, and Live environments | Implemented — restricted administration |
 | Automated test bots | Implemented — restricted |
@@ -45,14 +50,26 @@ Its creation, scenario execution, and administrative capabilities are implemente
 
 Academy is being validated through TradeSphere's own projects before expanding access.
 
-The inaugural campaign, **Gridiron: The Reckoning**, establishes two initial milestones:
+The first featured project, **Gridiron**, introduces the IRN token economy through **The Reckoning**, a five-phase campaign.
 
-- **01 — Discovery:** On-chain qualification and validation using Ethereum Sepolia and test assets.
-- **02 — Confidence:** The first Arbitrum One mainnet auction, contingent on sufficient participation and successful Discovery validation.
+The first two phases establish the initial milestones:
 
-Successful completion of these stages is the intended milestone for expanding access to Academy's creation and scenario capabilities.
+- **01 — Discovery:** The qualification phase begins with the Discovery auction
+  on Ethereum Sepolia, using test USDC and test IRN. An extended participation
+  window allows time to attract bidders, with minimum and maximum participation
+  requirements defining the qualification criteria for advancing to the
+  Confidence phase.
+- **02 — Confidence:** The initial funding phase introduces the Confidence
+  auction on Arbitrum One, using real USDC to establish market demand,
+  discover pricing, and raise capital.
+
+The Confidence auction is designed for participants making qualifying purchases between 100 and 5,000 USDC, with matching IRN rewards and a bonus lottery.
+
+Successful completion of these phases is the intended milestone for expanding access to Academy's creation and scenario capabilities.
 
 The objective is to demonstrate the technology through actual execution before opening it to additional projects.
+
+**[Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)**
 
 ---
 
@@ -62,7 +79,7 @@ Academy uses a server/browser architecture that separates application orchestrat
 
 ### Blazor Server & .NET 10
 
-Academy is built with **.NET 10, Blazor Server, and Fluent UI Blazor**.
+Academy is built with **.NET 10, Blazor Server, and Fluent UI Blazor 5**.
 
 The application uses strongly typed C# domain models and services for auction registration, configuration, execution, calculations, and presentation.
 
@@ -107,6 +124,7 @@ Uniswap CCA smart contracts remain authoritative for auction execution, clearing
 Academy's application services coordinate:
 
 - Auction registration, configuration, and deployment
+- Existing CCA contract loading and integration
 - Contract interaction and transaction execution
 - Blockchain monitoring and synchronization
 - Auction checkpoints and clearing calculations
@@ -122,61 +140,87 @@ For the technologies and transaction architecture, see [Technology Stack](techno
 
 ## Academy Auction Campaign Model
 
-Academy's evolving campaign architecture introduces a coordinating level above individual Uniswap CCA auctions.
+TradeSphere Academy provides infrastructure for projects to create, operate, and manage on-chain token auctions using Uniswap Continuous Clearing Auctions (CCA).
 
-An **Academy Auction** represents a campaign containing an ordered series of independently executed CCAs.
+Projects may use a single auction to launch a token market or organize multiple auctions into a broader campaign. Each project defines its own objectives, economic strategy, participation rules, and progression requirements.
 
-### Hierarchical Structure
+**Academy provides the infrastructure. Projects define their campaigns.**
 
-**Academy Auction → CCA Stage → Distribution Steps**
+### Campaign Structure
+
+**Campaign → Phase → Auction Attempt → Auction Stages**
 
 | Component | Responsibility |
 |---|---|
-| **Academy Auction** | Campaign identity, allocation, scheduling, graduation, and cumulative economic state |
-| **CCA Stage** | Individual auction configuration, execution, settlement, exits, and claims |
-| **Distribution Steps** | Token flow and supply distribution within an individual CCA |
+| **Campaign** | Project objectives, economic allocation, and progression plan |
+| **Phase** | A milestone with defined objectives and graduation requirements |
+| **Auction Attempt** | One independently executed CCA intended to achieve a phase objective |
+| **Scenario** | A reusable strategy selected for an attempt, including distribution and participation behavior |
+| **Auction Stages** | Token-release intervals defining relative supply distribution and flow rates within an auction |
 
-The campaign coordinates progression, while each underlying CCA retains its own smart contract execution and settlement lifecycle.
+The scenario is selected for an auction attempt; it is not permanently tied to a campaign phase. Each attempt has its own configuration, execution, clearing, settlement, exits, and claims.
 
-### Campaign Progression
+The structure is descriptive, not a requirement for every project. A simple campaign can consist of one auction without elaborate phases or repeated attempts.
 
-Each completed CCA contributes results to the campaign.
+### Auction Attempts & Scenarios
 
-A stage must meet its published minimum funding requirement to graduate. Failure terminates the current campaign, although the project can initiate another Academy Auction later.
+A phase may involve multiple auction attempts before meeting its graduation requirements. An unsuccessful attempt does not necessarily mean an unsuccessful phase.
 
-Successful stage results can inform the configuration and timing of future CCAs without changing the terms of an active auction.
+Based on the results, a project may repeat the same scenario, adjust the configuration of a subsequent attempt, or choose a different scenario. A reusable scenario can also be applied in other phases or projects.
 
-### Liquidity & Treasury Development
+Changes to strategy or configuration apply to future attempts. The deployed Uniswap CCA contract remains authoritative for the terms and outcome of each active auction.
 
-The Reckoning illustrates how campaign progression can support continued market development.
+### Graduation & Campaign Progression
 
-Following successful Confidence graduation, the project intends to establish its initial Uniswap liquidity pool.
+A phase defines *what the project is trying to achieve*. Its graduation requirements may include minimum participation, funding objectives, or other published measures.
 
-Subsequent stages can contribute additional assets to that liquidity pool while increasing treasury reserves.
+An auction attempt supplies evidence of progress toward those requirements. A project can evaluate an unsuccessful attempt and decide whether another is appropriate under its campaign rules.
 
-This allows liquidity and project funding to develop progressively throughout the campaign.
+Only after the phase satisfies its graduation requirements does the campaign advance to its next objective. Each attempt retains its own historical results rather than being overwritten by a later execution.
+
+### Gridiron — The Reckoning
+
+Gridiron demonstrates Academy's approach through **The Reckoning**, a five-phase strategy to establish the IRN market, develop liquidity, and support continued project growth.
+
+| Phase | Objective |
+|---|---|
+| **01 — Discovery** | Establish community participation and qualification |
+| **02 — Confidence** | Introduce real capital, discover market pricing, and establish initial funding |
+| **03 — Momentum** | Continue controlled token distribution and market development |
+| **04 — Expansion** | Broaden participation, capital formation, and liquidity |
+| **05 — Peak** | Complete the campaign's planned distribution |
+
+The Discovery phase begins with the Discovery auction on Ethereum Sepolia, using test USDC and test IRN. An extended participation window allows time to attract bidders, with minimum and maximum bidder requirements defining qualification for progression to the Confidence phase.
+
+The Confidence phase introduces the Confidence auction on Arbitrum One, using real USDC to establish market demand, discover prices, and raise capital.
+
+A phase can involve more than one auction attempt, and a subsequent attempt can use a different scenario or adjusted configuration. **The Reckoning is Gridiron's strategy, not a mandatory Academy campaign template.**
+
+### Market Development & Capital Formation
+
+Projects may need funding at different points in their development. Traditional arrangements include private token sales, OTC agreements with investors or institutions, exchange arrangements, and liquidity providers.
+
+Academy provides another mechanism: competitive on-chain auctions that allow participants to bid under published rules, helping establish a market price and allocate tokens. These auctions can serve some of the economic purposes of negotiated token sales without themselves being private OTC transactions.
+
+An auction may support an initial launch, further capital formation, or continued token distribution as a project develops. It does not replace exchanges, market makers, liquidity pools, or private agreements.
+
+Following successful graduation of the Confidence phase, Gridiron intends to establish its initial Uniswap liquidity pool. Subsequent phases may contribute assets to existing liquidity and project treasury reserves, allowing market development to progress alongside additional funding opportunities.
 
 ### Relationship to TradeSphere Campaigns
 
-The campaign model follows an architectural pattern already established within TradeSphere.
-
-A **CampaignActivity** contains **CampaignDirectives** that coordinate individual **AuctionActivities**.
-
-Directives provide scheduling and progression information, including timing, confidence, and consensus.
+TradeSphere's broader Activity model includes **CampaignActivity**, **CampaignDirectives**, and individual **AuctionActivities**. Directives can coordinate scheduling and progression, including timing, confidence, and consensus.
 
 A similar pattern applies to Gridiron's tournament model, where tournament coordination organizes individual game activities.
 
-Academy's campaign orchestration can remain independent while preserving compatibility with TradeSphere's broader Activity framework.
+The public campaign, phase, and attempt vocabulary describes a project's progression; it does not require Academy users to adopt or understand TradeSphere's internal Activity model. Academy can operate independently while remaining compatible with future integration.
 
 ### Implementation Status
 
-Individual CCA creation, execution, scenario evaluation, and replay are implemented.
+Individual CCA creation, execution, scenario evaluation, monitoring, and replay are implemented. Auction creation, scenario administration, and replay currently remain restricted to authorized users.
 
-Unified Academy Auction orchestration, adaptive stage scheduling, cumulative campaign state, and graduation management remain planned extensions.
+Unified multi-phase orchestration, cumulative campaign state, adaptive scheduling, and automated graduation management are planned. They can be introduced without replacing the underlying Uniswap CCA contracts.
 
-The existing CCA contracts do not need to be replaced to introduce this coordination layer.
-
-For campaign behavior, graduation, and auction mechanics, see [Auction Mechanics](auction.md).
+For campaign behavior, auction stages, bidding, and settlement, see [Auction Mechanics](auction.md).
 
 ---
 
@@ -194,7 +238,7 @@ Each registration contains three primary components:
 |---|---|
 | **Profile** | Project identity, description, and presentation |
 | **Config** | Token information, supply, pricing, duration, contract parameters, and deployment configuration |
-| **Scenario** | Distribution strategy, token flow, rounds, and execution behavior |
+| **Scenario** | Distribution strategy, token flow, stages, and execution behavior |
 
 This separation allows a project's identity, auction configuration, and execution strategy to evolve independently.
 
@@ -230,9 +274,9 @@ Scenario defines how the configured auction operates over time.
 It includes:
 
 - Token distribution strategy
-- Supply allocation across rounds or steps
+- Supply allocation across auction stages
 - Token flow rates
-- Round structure and relative timing
+- Stage structure and relative timing
 - Automated test bot populations and behavioral assignments
 - Execution and participation rules used for scenario evaluation
 
@@ -259,6 +303,54 @@ Participants can evaluate projects using observable activity, market participati
 Public registration and community discovery remain future capabilities.
 
 **Trust is earned through transactions, participation, and demonstrated behavior—not bestowed through platform approval.**
+
+---
+
+## Existing Uniswap CCA Integration
+
+Academy is not limited to auctions created through its registration and deployment workflows.
+
+It can load existing Uniswap CCA auctions directly using their deployed contract addresses, including auctions created independently of Academy.
+
+This provides an additional path for monitoring, analyzing, and replaying CCA execution.
+
+### Contract-Based Loading
+
+Academy can connect to an existing CCA contract and reconstruct its configuration and execution state from blockchain data.
+
+The application uses its existing domain models, Nethereum services, and calculation engine to represent the loaded auction.
+
+The auction does not need to have been originally deployed through Academy.
+
+### Live Monitoring
+
+Once loaded, an existing auction can be monitored as it progresses.
+
+Academy provides:
+
+- Auction configuration and distribution schedule
+- Live clearing prices and token flow
+- Bids and participant positions
+- Blockchain checkpoints and execution progress
+- Auction state, settlement, and allocation calculations
+
+Centralized blockchain monitoring supports a consistent application state while reducing redundant RPC activity.
+
+### Reconstruction & Replay
+
+Academy can reconstruct an auction's execution using blockchain records and checkpoints.
+
+Replay allows the calculation engine to evaluate historical auction behavior, including clearing prices, token distribution, bid competition, and allocations.
+
+Recorded results can be compared with reconstructed calculations to support technical analysis and verification.
+
+### Current Availability
+
+**Existing CCA loading, live monitoring, reconstruction, and replay are implemented capabilities currently restricted to administrators.**
+
+They extend Academy beyond auction creation into a broader operational and analytical environment for Uniswap CCA.
+
+[Detailed Auction Mechanics](auction.md)
 
 ---
 
@@ -352,12 +444,16 @@ Projects retain ownership and control of their tokens, assets, participants, and
 
 **Observable execution.** Support monitoring, reconstruction, and replay for understanding and verifying auction behavior.
 
+**External CCA compatibility.** Allow independently deployed Uniswap CCA auctions to be loaded, monitored, and analyzed without requiring Academy-based deployment.
+
 **Composable infrastructure.** Build reusable services and domain models that can extend into the broader TradeSphere platform.
 
 ---
 
 ## Related Documentation
 
+- [TradeSphere Academy](https://academy.tradesphere.org)
+- [Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)
 - [Auction Mechanics](auction.md)
 - [Technology Stack](technology.md)
 - [Test Bots & Scenarios](bots.md)
