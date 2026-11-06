@@ -111,6 +111,30 @@ We're putting Academy to work on our own projects first.
 Each phase advances when its graduation criteria are satisfied. Subsequent phases can contribute additional assets to the existing liquidity pool and project treasury.
 
 
+### From Auctions to Competitive Markets
+
+Gridiron extends the TradeSphere economy beyond token distribution. Leagues, Teams, Games, and Drives turn market predictions into competition: teams make market calls, and successful predictions help advance their plays on the field.
+
+Its **Competitive Market Driver (CMD)** connects participation and rewards to the creation and ownership of liquidity pools.
+
+**CMD turns competition into markets. Winning earns ownership.**
+
+![Gridiron — Iron League games and live competition](assets/gridiron-iron-league.png)
+
+*Iron League — scheduled games, team matchups, and live competition.*
+
+![Gridiron — Spacefinders team market activity](assets/gridiron-hardsix.png)
+
+*Behind the game — team Drives, Plays, and market calls on BTC/USDC.*
+
+### Gridiron — Markets in Motion
+
+![Gridiron — Live Game Replay](assets/gridiron-game-replay.gif)
+
+*Gridiron in action: teams compete on the field while financial-market predictions determine the success of their plays.*
+
+[Explore the Gridiron Portal](https://www.tradesphere.org/gridiron)
+
 ### The Discovery Auction — Live Test Auction
 
 The Discovery auction is Academy's first public test auction,
@@ -174,7 +198,7 @@ Academy makes that execution visible through:
 
 ![Live Academy auction — transition from Stage 3 to Stage 4](assets/academy-auction-live.gif)
 
-*Live auction execution: Stage 3 transitions to Stage 4 as the token-flow rate and remaining supply update. *
+*Live auction execution: Stage 3 transitions to Stage 4 as the token-flow rate and remaining supply update.*
 
 **Uniswap provides the auction protocol. Academy provides the tools to configure, operate, and understand it.**
 
@@ -247,7 +271,13 @@ TradeSphere already operates bots and scenarios across Ideas, Missions, and Game
 
 ### Replay & Verification
 
-Auction execution can be reconstructed and replayed, allowing calculated results to be compared against recorded activity. A complete execution can be reviewed in an accelerated 20-second replay; see [Test Bots & Scenarios](docs/bots.md) for the clip and explanation.
+Auction execution can be reconstructed and replayed, allowing calculated results to be compared against recorded activity. The following accelerated 20-second replay shows a complete auction from start to finish.
+
+![Academy auction — 20-second full replay](assets/academy-auction-replay.gif)
+
+*Complete auction replay, accelerated to 20 seconds.*
+
+See [Test Bots & Scenarios](docs/bots.md) for the testing framework and further explanation.
 
 Test bots, scenario administration, and replay are implemented capabilities that currently remain restricted to administrators.
 

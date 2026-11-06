@@ -101,7 +101,7 @@ The Discovery auction uses test IRN. Its testnet supply does not represent mainn
 
 **Qualification requires participation in the Discovery auction followed by a qualifying settled purchase in the Confidence auction.**
 
-**[Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)**
+**[Explore the Gridiron Auction](https://academy.tradesphere.org/featured)**
 
 ---
 
@@ -356,7 +356,7 @@ Contract enforcement, lottery selection, reward distribution, and any applicable
 ## Related Documentation
 
 - [TradeSphere Academy](https://academy.tradesphere.org)
-- [Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)
+- [Explore the Gridiron Auction](https://academy.tradesphere.org/featured)
 - [Architecture](architecture.md)
 - [Auction Mechanics](auction.md)
 - [Technology Stack](technology.md)

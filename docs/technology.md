@@ -234,7 +234,7 @@ transactions, competitive bidding, clearing, and settlement
 while establishing the participation needed to advance to
 the Confidence phase.
 
-**[Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)**
+**[Explore the Gridiron Auction](https://academy.tradesphere.org/featured)**
 
 ### Automation & Replay
 
@@ -314,7 +314,7 @@ Academy's technology choices reflect several architectural priorities:
 ## Related Documentation
 
 - [TradeSphere Academy](https://academy.tradesphere.org)
-- [Gridiron Discovery Auction](https://academy.tradesphere.org/gridiron)
+- [Gridiron Discovery Auction](https://academy.tradesphere.org/featured)
 - [Architecture](architecture.md)
 - [Auction Mechanics](auction.md)
 - [Test Bots & Scenarios](bots.md)

@@ -255,7 +255,7 @@ before the campaign can advance to the Confidence phase.
 different purposes.** Public qualification is intended to
 demonstrate genuine community interest and participation.
 
-**[Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)**
+**[Explore the Gridiron Auction](https://academy.tradesphere.org/featured)**
 
 ### Live — Arbitrum One Mainnet Execution
 
@@ -391,7 +391,7 @@ The distinction remains important:
 ## Related Documentation
 
 - [TradeSphere Academy](https://academy.tradesphere.org)
-- [Gridiron Discovery Auction](https://academy.tradesphere.org/gridiron)
+- [Gridiron Discovery Auction](https://academy.tradesphere.org/featured)
 - [Architecture](architecture.md)
 - [Auction Mechanics](auction.md)
 - [Technology Stack](technology.md)

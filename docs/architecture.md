@@ -453,7 +453,7 @@ Projects retain ownership and control of their tokens, assets, participants, and
 ## Related Documentation
 
 - [TradeSphere Academy](https://academy.tradesphere.org)
-- [Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)
+- [Explore the Gridiron Auction](https://academy.tradesphere.org/featured)
 - [Auction Mechanics](auction.md)
 - [Technology Stack](technology.md)
 - [Test Bots & Scenarios](bots.md)

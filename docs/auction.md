@@ -63,7 +63,7 @@ Participation in the Discovery auction also establishes eligibility
 for additional IRN matching rewards through qualifying purchases
 in the Confidence auction.
 
-**[Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)**
+**[Explore the Gridiron Auction](https://academy.tradesphere.org/featured)**
 
 #### The Confidence Auction — Planned Mainnet Auction
 
@@ -338,7 +338,7 @@ The planned position-model update will expose realized and unrealized values sep
 ## Related Documentation
 
 - [TradeSphere Academy](https://academy.tradesphere.org) — Live application
-- [Gridiron Discovery Auction](https://academy.tradesphere.org/gridiron) — Public Sepolia test auction
+- [Gridiron Discovery Auction](https://academy.tradesphere.org/featured) — Public Sepolia test auction
 - [Architecture](architecture.md) — Application architecture and creation
 - [Technology Stack](technology.md) — .NET, Nethereum, Reown, and supporting technologies
 - [Bots & Scenarios](bots.md) — Test, Sim, Live, automation, and replay
