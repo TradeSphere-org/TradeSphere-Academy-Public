@@ -1,10 +1,10 @@
 # TradeSphere Academy
 
-**On-Chain Auctions · Continuous Price Discovery · Market-Driven Token Launches**
+**On-Chain Auctions · Continuous Price Discovery · Market-Driven Project Launches**
 
 **Great projects need more than great ideas. They need an economy.**
 
-TradeSphere Academy helps projects launch token economies through on-chain auctions, market-driven funding, price discovery, and community participation.
+TradeSphere Academy helps projects build project economies through on-chain auctions, market-driven funding, price discovery, and community participation.
 
 Built on **Uniswap's Continuous Clearing Auction (CCA)** protocol, Academy provides the infrastructure to design, test, operate, and participate in token launches.
 
@@ -16,7 +16,7 @@ Projects can begin with a single auction or develop a campaign of phases and rep
 
 *TradeSphere Academy — on-chain auctions powered by Uniswap CCA.*
 
-## Launching a Token Is an Event. Building an Economy Is a Process.
+## Launching a Project Is an Event. Building an Economy Is a Process.
 
 An initial token sale may establish a price, but projects need more than a launch event to succeed. They need participants, capital, liquidity, and opportunities to grow.
 
@@ -55,7 +55,7 @@ A phase may require more than one **attempt**: each attempt executes an individu
 
 An unsuccessful auction attempt does not automatically end its campaign phase. Advancement depends on the phase's published graduation rules and the project's decision to proceed. Within an auction, **stages** describe changes in token distribution and flow—not campaign phases.
 
-The objective is not to guarantee success or eliminate market risk. It is to provide a repeatable, market-driven framework for launching and developing token economies.
+The objective is not to guarantee success or eliminate market risk. It is to provide a repeatable, market-driven framework for launching and developing project economies.
 
 *Individual CCA execution is operational. Unified campaign orchestration and adaptive progression are planned extensions.*
 
@@ -82,7 +82,7 @@ where participants help discover the price and determine how
 capital is allocated to the project.
 
 An auction may support an initial market launch, additional
-funding, or continued token distribution as the project grows.
+funding, or continued project token distribution as the project grows.
 Projects can also establish and expand liquidity pools or pursue
 exchange listings independently.
 
@@ -98,7 +98,7 @@ a single auction.
 
 We're putting Academy to work on our own projects first.
 
-**Gridiron** is our first featured project, introducing the IRN token economy through a five-phase campaign of progressive distribution, funding, and participation.
+**Gridiron** is our first featured project, establishing the Gridiron economy through a five-phase campaign of progressive distribution, funding, and participation.
 
 | Phase | Network | Purpose | Liquidity |
 |---|---|---|---|
