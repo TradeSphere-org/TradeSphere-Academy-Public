@@ -133,7 +133,7 @@ Its **Competitive Market Driver (CMD)** connects participation and rewards to th
 
 *Gridiron in action: teams compete on the field while financial-market predictions determine the success of their plays.*
 
-[Explore the Gridiron Portal](https://www.tradesphere.org/gridiron)
+[Explore the Gridiron Portal](https://app.tradesphere.org/gridiron)
 
 ### The Discovery Auction — Live Test Auction
 
@@ -156,7 +156,7 @@ not simply connecting a wallet.**
 Academy provides test USDC once per wallet, immediately before
 the first bid—not upon connection, and not again after bidding.
 
-**[Join the Discovery Auction](https://academy.tradesphere.org/gridiron)**
+**[Join the Discovery Auction](https://academy.tradesphere.org/featured)**
 
 ### The Confidence Auction — Real Participation, Real Incentives
 
@@ -325,7 +325,7 @@ Selected libraries, components, and integration interfaces may be released separ
 
 **[TradeSphere Academy](https://academy.tradesphere.org)** — Explore the platform and participate in live auctions.
 
-**[Gridiron Discovery Auction](https://academy.tradesphere.org/gridiron)** — Participate in the live Sepolia test auction.
+**[Gridiron Discovery Auction](https://academy.tradesphere.org/featured)** — Participate in the live Sepolia test auction.
 
 **[TradeSphere Website](https://www.tradesphere.org)** — Explore the ecosystem and its applications.
 

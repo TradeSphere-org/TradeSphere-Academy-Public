@@ -69,7 +69,7 @@ Successful completion of these phases is the intended milestone for expanding ac
 
 The objective is to demonstrate the technology through actual execution before opening it to additional projects.
 
-**[Explore the Gridiron Auction](https://academy.tradesphere.org/gridiron)**
+**[Explore the Gridiron Auction](https://academy.tradesphere.org/featured)**
 
 ---
 
